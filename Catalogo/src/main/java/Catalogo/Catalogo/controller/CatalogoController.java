@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,14 @@ public class CatalogoController {
 
     @Autowired
     CatalogoService service;
+
+    @GetMapping("/Listar")
+    public ResponseEntity<List<CatalogoModel>> getAll(){
+        logger.info("Solicitando listado de tablas");
+        List<CatalogoModel> items = service.getAllCatalogo();
+        logger.debug("Número de items encontrados: {}", items.size());
+        return new ResponseEntity<>(items, HttpStatus.OK);
+    }
 
     @GetMapping(UrlConstant.CATALOGO_GET_TABLA)
     public ResponseEntity<List<CatalogoModel>> getAllTablas(){
@@ -58,8 +67,8 @@ public class CatalogoController {
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
-    @GetMapping(UrlConstant.CATALOGO_GET_ITEM)
-    public ResponseEntity<CatalogoModel> getItemsByTabla(@RequestBody CatalogoModel item){
+    @PutMapping(UrlConstant.CATALOGO_UPDATE_ITEM)
+    public ResponseEntity<CatalogoModel> updateItem(@RequestBody CatalogoModel item){
         logger.info("Solicitando items de tabla {}",item);
         CatalogoModel items = service.update(item);
         logger.debug("Item actualizado: {}", items);

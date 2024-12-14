@@ -43,5 +43,10 @@ public class CatalogoService implements ICatalogoService{
     public CatalogoModel update(CatalogoModel model) {
         return repository.save(model);
     }
+
+    @Override
+    public List<CatalogoModel> getAllCatalogo() {
+        return (List<CatalogoModel>) repository.findAll();
+    }
     
 }

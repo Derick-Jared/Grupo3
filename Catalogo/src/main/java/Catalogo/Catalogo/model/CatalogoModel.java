@@ -24,10 +24,10 @@ public class CatalogoModel {
     public int tabla;
     @Column(name = "item")
     public int item;
-    @Column(name = "descripcionCorta")
-    public String descripcionCorta;
-    @Column(name = "descripcionLarga")
-    public String descripcionLarga;
+    @Column(name = "descripcion_corta")
+    public String descripcion_corta;
+    @Column(name = "descripcion_larga")
+    public String descripcion_larga;
     @Column(name = "estado")
     public String estado;
     @Column(name = "creado_por")

@@ -11,4 +11,5 @@ public interface ICatalogoService {
     public CatalogoModel update(CatalogoModel model);
     public List<CatalogoModel> getTablas();
     public List<CatalogoModel> getItems(int tabla);
+    public List<CatalogoModel> getAllCatalogo();
 }

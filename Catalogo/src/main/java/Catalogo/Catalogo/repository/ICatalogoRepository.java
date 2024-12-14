@@ -12,13 +12,13 @@ import Catalogo.Catalogo.model.CatalogoModel;
 @Repository
 public interface ICatalogoRepository extends CrudRepository <CatalogoModel,Integer> {
     
-    @Query("SELECT c FROM catalogo c WHERE c.tabla = '00'")
+    @Query("SELECT c FROM catalogo c WHERE c.tabla = 0")
     List<CatalogoModel> findAllTablas();
 
     @Query("SELECT c FROM catalogo c WHERE c.descripcionCorta = :desc ")
     CatalogoModel findByDescripcionCorta(@Param("desc") String descripcion);
 
     @Query("SELECT c FROM catalogo c WHERE c.tabla = :tabla")
-    List<CatalogoModel> findItemsByTabla(@Param("tabla") String tabla);
+    List<CatalogoModel> findItemsByTabla(@Param("tabla") int tabla);
 
 }

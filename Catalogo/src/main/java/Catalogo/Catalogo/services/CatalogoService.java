@@ -20,7 +20,7 @@ public class CatalogoService implements ICatalogoService{
     }
 
     @Override
-    public List<CatalogoModel> getItems(String tabla) {
+    public List<CatalogoModel> getItems(int tabla) {
         return repository.findItemsByTabla(tabla);
     }
 
@@ -35,8 +35,7 @@ public class CatalogoService implements ICatalogoService{
     }
 
     @Override
-    public CatalogoModel addItem(CatalogoModel model, String tabla) {
-        model.setTabla(tabla);
+    public CatalogoModel addItem(CatalogoModel model) {
         return repository.save(model);
     }
 

@@ -14,14 +14,16 @@ import lombok.Data;
 @Table(name = "Catalogo")
 @Data
 public class CatalogoModel {
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Integer id;
     @Column(name = "tabla")
-    public String tabla;
+    public int tabla;
     @Column(name = "item")
-    public String item;
+    public int item;
     @Column(name = "descripcionCorta")
     public String descripcionCorta;
     @Column(name = "descripcionLarga")

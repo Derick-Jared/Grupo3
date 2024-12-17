@@ -1,6 +1,6 @@
 package TDA2024.Recepcion.routes;
 
-public class routes {
+public class IncidenciaRoutes {
     public static final String BASE = "incidencia"; 
     public static final String GET_ALL ="/all";  
     public static final String GET_BY_ID = "/get/{id}"; 

@@ -43,8 +43,8 @@ public class CatalogoService implements ICatalogoService{
     }
 
     @Override
-    public CatalogoModel update(CatalogoModel model) {
-        return repository.save(model);
+    public int update(CatalogoModel model) {
+        return repository.updateCatalogoItem(model.getId(),model.getDescripcion_corta(),model.getDescripcion_larga(),model.getActualizado_en(),model.getActualizado_por());
     }
 
     // @Cacheable(cacheNames = {"catalogoCache"}, key = "'allCatalogo'" )
@@ -66,6 +66,11 @@ public class CatalogoService implements ICatalogoService{
     @Override
     public int getMaxItembyTabla(int tabla) {
         return repository.findMaxItemByTabla(tabla);
+    }
+
+    @Override
+    public CatalogoModel getItemById(int id) {
+        return (CatalogoModel) repository.findById(id).get();
     }
     
 }

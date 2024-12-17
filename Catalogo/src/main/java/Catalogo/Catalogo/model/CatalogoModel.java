@@ -1,6 +1,7 @@
 package Catalogo.Catalogo.model;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import org.hibernate.annotations.NotFound;
 import org.springframework.data.annotation.CreatedBy;
@@ -57,7 +58,7 @@ public class CatalogoModel {
 
     @CreatedDate
     @Column(name = "creado_en")
-    public Date creado_en;
+    public LocalDateTime creado_en;
 
     // @LastModifiedBy
     @Column(name = "actualizado_por")
@@ -65,5 +66,5 @@ public class CatalogoModel {
 
     @LastModifiedDate
     @Column(name = "actualizado_en")
-    public Date actualizado_en;
+    public LocalDateTime actualizado_en;
 }

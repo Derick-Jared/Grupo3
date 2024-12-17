@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Catalogo.Catalogo.constant.UrlConstant;
+import Catalogo.Catalogo.exception.response.ErrorResponse;
 import Catalogo.Catalogo.model.CatalogoModel;
 import Catalogo.Catalogo.services.CatalogoService;
 import jakarta.validation.Valid;
@@ -53,12 +54,28 @@ public class CatalogoController {
     }
     
     @PostMapping(UrlConstant.CATALOGO_ADD_ITEM) 
-    public ResponseEntity<CatalogoModel> CreateItems(@Valid @RequestBody CatalogoModel item){
+    public ResponseEntity<?> CreateItems(@Valid @RequestBody CatalogoModel item){
+        ErrorResponse error;
         CatalogoModel newModel = service.getTabla(item.getTabla());
-        if(newModel == null){
+        if(newModel == null && item.getTabla() != 0){
             logger.warn("No se encontro a la tabla {}",item.getTabla());
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            error = new ErrorResponse(
+            "No se encontro a la tabla: " + item.getDescripcion_corta(), 
+            HttpStatus.NOT_FOUND.value(), 
+            "");
+            return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
         }
+
+        newModel = service.getByDescripcionCorta(item.getDescripcion_corta());
+        if(newModel != null){
+            logger.warn("Ya existe un elemento con esa descripcion corta: {}", item.getDescripcion_corta());
+            error = new ErrorResponse(
+            "Ya existe un elemento con esa descripcion corta: " + item.getDescripcion_corta(), 
+            HttpStatus.EXPECTATION_FAILED.value(), 
+            "");
+            return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
+        }
+
         int newItem = item.getItem() == 0 ? service.getMaxTabla() + 1 : service.getMaxItembyTabla(item.getTabla()) + 1;
         item.setItem(newItem);
         logger.info("Agregando item {}",item);
@@ -67,19 +84,50 @@ public class CatalogoController {
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
+    @PutMapping(UrlConstant.CATALOGO_UPDATE_ITEM)
+    public ResponseEntity<?> updateItem(@Valid @RequestBody CatalogoModel item){
+        ErrorResponse error;
+        CatalogoModel newModel = service.getTabla(item.getTabla());
+        if(newModel == null && item.getTabla() != 0){
+            logger.warn("No se encontro a la tabla {}",item.getTabla());
+            error = new ErrorResponse(
+            "No se encontro a la tabla: " + item.getDescripcion_corta(), 
+            HttpStatus.NOT_FOUND.value(), 
+            "");
+            return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        }
+
+        newModel = service.getByDescripcionCorta(item.getDescripcion_corta());
+        if(newModel != null && newModel.getId() != item.getId()){
+            logger.warn("Ya existe un elemento con esa descripcion corta: {}", item.getDescripcion_corta());
+            error = new ErrorResponse(
+            "Ya existe un elemento con esa descripcion corta: " + item.getDescripcion_corta(), 
+            HttpStatus.EXPECTATION_FAILED.value(), 
+            "");
+            return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
+        }
+
+        int success = service.update(item);
+        if(success > 0){
+            newModel = service.getItemById(item.getId());
+            logger.info("Item actualizado: {}", newModel);
+            return new ResponseEntity<>(newModel, HttpStatus.OK);
+        }
+        else{
+            logger.error("Ocurrio un problema, No se pudo actualizar el item de id: {}",item.getId());
+            error = new ErrorResponse(
+            "Ocurrio un problema, No se pudo actualizar el item de id: {}" + item.getId(), 
+            HttpStatus.EXPECTATION_FAILED.value(), 
+            "");
+            return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
     @GetMapping(UrlConstant.CATALOGO_GET_DESC)
     public ResponseEntity<CatalogoModel> getItemDesc(@PathVariable String desc){
         logger.info("Solicitando descripcion de item {}",desc);
         CatalogoModel items = service.getByDescripcionCorta(desc);
         logger.debug("Número de items encontrados: {}", items);
-        return new ResponseEntity<>(items, HttpStatus.OK);
-    }
-
-    @PutMapping(UrlConstant.CATALOGO_UPDATE_ITEM)
-    public ResponseEntity<CatalogoModel> updateItem(@Valid @RequestBody CatalogoModel item){
-        logger.info("Solicitando items de tabla {}",item);
-        CatalogoModel items = service.update(item);
-        logger.debug("Item actualizado: {}", items);
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 }

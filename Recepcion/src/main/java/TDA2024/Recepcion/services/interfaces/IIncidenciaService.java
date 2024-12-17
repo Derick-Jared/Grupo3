@@ -1,4 +1,4 @@
-package TDA2024.Recepcion.services;
+package TDA2024.Recepcion.services.interfaces;
 
 
 import TDA2024.Recepcion.models.IncidenciaModel;

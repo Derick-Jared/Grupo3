@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import TDA2024.Recepcion.models.IncidenciaModel;
 import TDA2024.Recepcion.repositories.IIncidenciaRepository;
+import TDA2024.Recepcion.services.interfaces.IIncidenciaService;
 //@CacheConfig(cacheNames = "inicidencia")
 @Service
 public class IncidenciaService implements IIncidenciaService{

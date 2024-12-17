@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import TDA2024.Recepcion.models.RecepcionModel;
 import TDA2024.Recepcion.routes.RecepcionRoutes;
-import TDA2024.Recepcion.services.IRecepcionService;
+import TDA2024.Recepcion.services.interfaces.IRecepcionService;
 
 @RestController
 @RequestMapping(RecepcionRoutes.BASE)

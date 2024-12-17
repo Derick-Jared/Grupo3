@@ -9,7 +9,10 @@ public interface ICatalogoService {
     public CatalogoModel addItem(CatalogoModel model);
     public CatalogoModel getByDescripcionCorta(String desc);
     public CatalogoModel update(CatalogoModel model);
-    public List<CatalogoModel> getTablas();
-    public List<CatalogoModel> getItems(int tabla);
+    public List<CatalogoModel> getAllTablas();
+    public List<CatalogoModel> getItemsByTabla(int tabla);
+    public CatalogoModel getTabla(int tabla);
     public List<CatalogoModel> getAllCatalogo();
+    public int getMaxTabla();
+    public int getMaxItembyTabla(int tabla);
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Catalogo.Catalogo.constant.UrlConstant;
 import Catalogo.Catalogo.model.CatalogoModel;
 import Catalogo.Catalogo.services.CatalogoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(UrlConstant.CATALOGO_BASE)
@@ -35,24 +36,31 @@ public class CatalogoController {
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
-    @GetMapping(UrlConstant.CATALOGO_GET_TABLA)
+    @GetMapping(UrlConstant.CATALOGO_GET_ALL_TABLA)
     public ResponseEntity<List<CatalogoModel>> getAllTablas(){
         logger.info("Solicitando listado de tablas");
-        List<CatalogoModel> items = service.getTablas();
+        List<CatalogoModel> items = service.getAllTablas();
         logger.debug("Número de items encontrados: {}", items.size());
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
-    @GetMapping(UrlConstant.CATALOGO_GET_ITEM)
+    @GetMapping(UrlConstant.CATALOGO_GET_ITEM_BY_TABLA)
     public ResponseEntity<List<CatalogoModel>> getItemsByTabla(@PathVariable int tabla){
         logger.info("Solicitando items de tabla {}",tabla);
-        List<CatalogoModel> items = service.getItems(tabla);
+        List<CatalogoModel> items = service.getItemsByTabla(tabla);
         logger.debug("Número de items encontrados: {}", items.size());
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
     
     @PostMapping(UrlConstant.CATALOGO_ADD_ITEM) 
-    public ResponseEntity<CatalogoModel> CreateItems(@RequestBody CatalogoModel item){
+    public ResponseEntity<CatalogoModel> CreateItems(@Valid @RequestBody CatalogoModel item){
+        CatalogoModel newModel = service.getTabla(item.getTabla());
+        if(newModel == null){
+            logger.warn("No se encontro a la tabla {}",item.getTabla());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        int newItem = item.getItem() == 0 ? service.getMaxTabla() + 1 : service.getMaxItembyTabla(item.getTabla()) + 1;
+        item.setItem(newItem);
         logger.info("Agregando item {}",item);
         CatalogoModel items = service.addItem(item);
         logger.debug("Item agregado");
@@ -68,11 +76,10 @@ public class CatalogoController {
     }
 
     @PutMapping(UrlConstant.CATALOGO_UPDATE_ITEM)
-    public ResponseEntity<CatalogoModel> updateItem(@RequestBody CatalogoModel item){
+    public ResponseEntity<CatalogoModel> updateItem(@Valid @RequestBody CatalogoModel item){
         logger.info("Solicitando items de tabla {}",item);
         CatalogoModel items = service.update(item);
         logger.debug("Item actualizado: {}", items);
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
-
 }

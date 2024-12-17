@@ -21,4 +21,12 @@ public interface ICatalogoRepository extends CrudRepository <CatalogoModel,Integ
     @Query("SELECT c FROM CatalogoModel c WHERE c.tabla = :tabla")
     List<CatalogoModel> findItemsByTabla(@Param("tabla") int tabla);
 
+    @Query("SELECT c FROM CatalogoModel c WHERE c.tabla = 0 and c.item = :tabla")
+    CatalogoModel findTablaExist(@Param("tabla") int tabla);
+
+    @Query("SELECT MAX(c.item) FROM CatalogoModel c WHERE c.tabla = 0")
+    int findMaxTabla();
+
+    @Query("SELECT MAX(c.item) FROM CatalogoModel c WHERE c.tabla = :tabla")
+    int findMaxItemByTabla(@Param("tabla") int tabla);
 }

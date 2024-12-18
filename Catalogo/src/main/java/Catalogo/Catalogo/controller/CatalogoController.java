@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,6 +56,13 @@ public class CatalogoController {
             return new ResponseEntity<>("Item no encontrado o repetido ",HttpStatus.CONFLICT);
         }
         logger.error("Item actualizado: {}", model.getId());
+        return new ResponseEntity<>(newModel,HttpStatus.OK);
+    }
+
+    @DeleteMapping(UrlConstant.CATALOGO_DELETE_ITEM)
+    public ResponseEntity<?> updateEstadoItem(@PathVariable int id){
+        boolean newModel = service.deleteItem(id);
+        logger.error("Item actualizado: {}", id);
         return new ResponseEntity<>(newModel,HttpStatus.OK);
     }
 

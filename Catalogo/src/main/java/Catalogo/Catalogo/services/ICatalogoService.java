@@ -12,4 +12,6 @@ public interface ICatalogoService {
     public List<CatalogoModel> getAllTablas();
     public List<CatalogoModel> getItemsByTabla(int tabla);
     public List<CatalogoModel> getAllCatalogo();
+    public CatalogoModel updateEstado(int id);
+    public boolean deleteItem(int id);
 }

@@ -53,6 +53,7 @@ public class CatalogoService implements ICatalogoService{
             ? (maxTabla != null ? maxTabla + 1 : 1)
             : (maxItemByTabla != null ? maxItemByTabla + 1 : 1); 
         model.setItem(itemValue);
+        model.setEstado("HAB");
         return repository.save(model);
     }
 
@@ -72,6 +73,7 @@ public class CatalogoService implements ICatalogoService{
         newModel.setDescripcion_larga(model.getDescripcion_larga());
         newModel.setActualizado_en(model.getActualizado_en());
         newModel.setActualizado_por(model.getActualizado_por());
+        newModel.setEstado(model.getEstado());
         return repository.save(newModel);
     }
 
@@ -84,6 +86,20 @@ public class CatalogoService implements ICatalogoService{
     @Override
     public CatalogoModel getItemById(int id) {
         return (CatalogoModel) repository.findById(id).get();
+    }
+
+    @Override
+    public CatalogoModel updateEstado(int id) {
+        CatalogoModel model = (CatalogoModel) repository.findById(id).get();
+        String estado = model.getEstado() == "HAB" ? "ELIM" : "HAB";
+        model.setEstado(estado);
+        return repository.save(model);
+    }
+
+    @Override
+    public boolean deleteItem(int id) {
+        repository.deleteById(id);
+        return repository.findById(id).isPresent()? false : true;
     }
     
 }

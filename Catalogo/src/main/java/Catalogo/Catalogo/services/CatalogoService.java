@@ -33,39 +33,52 @@ public class CatalogoService implements ICatalogoService{
     }
 
     @Override
-    public CatalogoModel addTabla(CatalogoModel model) {
-        return repository.save(model);
-    }
-
-    @Override
     public CatalogoModel addItem(CatalogoModel model) {
+        if(model.getTabla() != 0){
+            CatalogoModel newModel = repository.findTablaExist(model.getTabla());
+            if(newModel == null){
+                model.setId(0);
+                return model;
+            }
+        }
+        CatalogoModel searchModel = repository.findByDescripcionCorta(model.getDescripcion_corta());
+        if(searchModel != null && searchModel.getId() != model.getId()){
+            searchModel.setId(0);
+            return searchModel;
+        }
+        
+        Integer maxTabla = repository.findMaxTabla();
+        Integer maxItemByTabla = repository.findMaxItemByTabla(model.getTabla());
+        int itemValue = model.getTabla() == 0 
+            ? (maxTabla != null ? maxTabla + 1 : 1)
+            : (maxItemByTabla != null ? maxItemByTabla + 1 : 1); 
+        model.setItem(itemValue);
         return repository.save(model);
     }
 
     @Override
-    public int update(CatalogoModel model) {
-        return repository.updateCatalogoItem(model.getId(),model.getDescripcion_corta(),model.getDescripcion_larga(),model.getActualizado_en(),model.getActualizado_por());
+    public CatalogoModel update(CatalogoModel model) {
+        CatalogoModel newModel = (CatalogoModel) repository.findById(model.getId()).get();
+        if(newModel == null){
+            model.setId(0);
+            return model;
+        }
+        CatalogoModel searchModel = (CatalogoModel) repository.findByDescripcionCorta(model.getDescripcion_corta());
+        if(searchModel != null && searchModel.getId() != model.getId()){
+            searchModel.setId(0);
+            return searchModel;
+        }
+        newModel.setDescripcion_corta(model.getDescripcion_corta());
+        newModel.setDescripcion_larga(model.getDescripcion_larga());
+        newModel.setActualizado_en(model.getActualizado_en());
+        newModel.setActualizado_por(model.getActualizado_por());
+        return repository.save(newModel);
     }
 
     // @Cacheable(cacheNames = {"catalogoCache"}, key = "'allCatalogo'" )
     @Override
     public List<CatalogoModel> getAllCatalogo() {
         return (List<CatalogoModel>) repository.findAll();
-    }
-
-    @Override
-    public CatalogoModel getTabla(int tabla) {
-        return repository.findTablaExist(tabla);
-    }
-
-    @Override
-    public int getMaxTabla() {
-        return repository.findMaxTabla();
-    }
-
-    @Override
-    public int getMaxItembyTabla(int tabla) {
-        return repository.findMaxItemByTabla(tabla);
     }
 
     @Override

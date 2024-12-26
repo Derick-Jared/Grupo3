@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import TDA2024.Usuarios.models.PersonaModel;
-import TDA2024.Usuarios.repositories.IPersonaRepositories;
+import TDA2024.Usuarios.repositories.IPersonaRepository;
 import TDA2024.Usuarios.services.interfaces.IPersonaService;
 
 @Service
 public class PersonaService implements IPersonaService {
     @Autowired
-    IPersonaRepositories personaRepository;
+    IPersonaRepository personaRepository;
     
     @Override
     public Iterable<PersonaModel> findAll() {

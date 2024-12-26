@@ -45,9 +45,9 @@ public class PersonaController {
     public String delete(@PathVariable int id) {
         boolean deleted = personaService.delete(id);
         if (deleted) {
-            return "incidencia eliminado exitosamente.";
+            return "persona eliminado exitosamente.";
         } else {
-            return "No se pudo eliminar el incidencia.";
+            return "No se pudo eliminar el persona.";
         }
     }
 }

@@ -28,13 +28,6 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-<<<<<<<< HEAD:Recepcion/.gitignore
-========
-
->>>>>>>> feature/Envios:Proyecto Grupo 3/Catalogo/.gitignore
 
 ### VS Code ###
 .vscode/
-
-### LOGS ###
-logs/

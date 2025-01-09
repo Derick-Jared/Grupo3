@@ -3,6 +3,7 @@ package TDA2024.Usuarios.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +18,13 @@ import TDA2024.Usuarios.services.interfaces.IUsuarioService;
 
 @RestController
 @RequestMapping(UsuarioRoutes.BASE)
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class UsuarioController {
     @Autowired
     IUsuarioService usuarioService;
-
-     @GetMapping(UsuarioRoutes.GET_ALL)
+    
+    @GetMapping(UsuarioRoutes.GET_ALL)
 	public List<UsuarioModel> listar() {
 		return (List<UsuarioModel>) usuarioService.findAll();
 	}

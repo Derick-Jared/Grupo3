@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div>
+  <!-- Contenido específico del componente Usuario -->
+  <h1>Bienvenido al componente Usuario</h1>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

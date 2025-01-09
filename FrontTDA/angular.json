@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontTD": {
+    "FrontTDA": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/front-td",
+            "outputPath": "dist/front-tda",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "frontTD:build:production"
+              "browserTarget": "FrontTDA:build:production"
             },
             "development": {
-              "browserTarget": "frontTD:build:development"
+              "browserTarget": "FrontTDA:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontTD:build"
+            "browserTarget": "FrontTDA:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "ee8e08f5-1a77-4af7-9d23-4c9138827d8e"
+    "analytics": "4f82cc01-5213-4918-971b-69450157b79d"
   }
 }

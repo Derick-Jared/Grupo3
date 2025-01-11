@@ -8,18 +8,29 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CatalogoFormComponent } from './components/configuracion/catalogo-form/catalogo-form.component';
+import { CatalogoComponent } from './components/configuracion/catalogo/catalogo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+
     UsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    CatalogoComponent,
+    CatalogoFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

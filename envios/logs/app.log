@@ -1,0 +1,71 @@
+2025-01-11T01:09:16.710-05:00  INFO 11212 --- [envios] [main] envios.envios.EnviosApplication          : Starting EnviosApplication using Java 17.0.13 with PID 11212 (D:\Taller de desarrollo\Proyecto Grupo 3\Grupo3\envios\target\classes started by userr in D:\Taller de desarrollo\Proyecto Grupo 3\Grupo3\envios)
+2025-01-11T01:09:16.716-05:00  INFO 11212 --- [envios] [main] envios.envios.EnviosApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-01-11T01:09:18.246-05:00  INFO 11212 --- [envios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-11T01:09:18.386-05:00  INFO 11212 --- [envios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 5 JPA repository interfaces.
+2025-01-11T01:09:19.516-05:00  INFO 11212 --- [envios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-01-11T01:09:19.535-05:00  INFO 11212 --- [envios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-11T01:09:19.535-05:00  INFO 11212 --- [envios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-01-11T01:09:19.656-05:00  INFO 11212 --- [envios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-11T01:09:19.656-05:00  INFO 11212 --- [envios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2820 ms
+2025-01-11T01:09:20.134-05:00  INFO 11212 --- [envios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-11T01:09:20.586-05:00  INFO 11212 --- [envios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: a491ada7-291a-44b4-bcd9-6b5ed74bfb5e
+2025-01-11T01:09:20.591-05:00  INFO 11212 --- [envios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-11T01:09:20.726-05:00  INFO 11212 --- [envios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-11T01:09:20.917-05:00  INFO 11212 --- [envios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2025-01-11T01:09:20.999-05:00  INFO 11212 --- [envios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-11T01:09:21.518-05:00  INFO 11212 --- [envios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-11T01:09:21.764-05:00  INFO 11212 --- [envios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-11T01:09:25.026-05:00  INFO 11212 --- [envios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-11T01:09:25.041-05:00  INFO 11212 --- [envios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-11T01:09:27.540-05:00  INFO 11212 --- [envios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-11T01:09:31.146-05:00  WARN 11212 --- [envios] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-11T01:09:37.545-05:00  INFO 11212 --- [envios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-01-11T01:09:37.709-05:00  INFO 11212 --- [envios] [main] envios.envios.EnviosApplication          : Started EnviosApplication in 21.944 seconds (process running for 22.989)
+2025-01-11T01:09:52.374-05:00  INFO 11212 --- [envios] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-11T01:09:52.377-05:00  INFO 11212 --- [envios] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-11T01:09:52.381-05:00  INFO 11212 --- [envios] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-01-11T01:10:39.013-05:00  INFO 11212 --- [envios] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-11T01:10:39.093-05:00  INFO 11212 --- [envios] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-11T01:10:39.109-05:00  INFO 11212 --- [envios] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-11T01:10:39.115-05:00  INFO 11212 --- [envios] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-11T01:10:39.168-05:00  INFO 11212 --- [envios] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-11T01:15:53.937-05:00  INFO 5232 --- [envios] [main] envios.envios.EnviosApplication          : Starting EnviosApplication using Java 17.0.13 with PID 5232 (D:\Taller de desarrollo\Proyecto Grupo 3\Grupo3\envios\target\classes started by userr in D:\Taller de desarrollo\Proyecto Grupo 3\Grupo3\envios)
+2025-01-11T01:15:53.942-05:00  INFO 5232 --- [envios] [main] envios.envios.EnviosApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-01-11T01:15:54.874-05:00  INFO 5232 --- [envios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-11T01:15:54.983-05:00  INFO 5232 --- [envios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 5 JPA repository interfaces.
+2025-01-11T01:15:55.897-05:00  INFO 5232 --- [envios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-01-11T01:15:55.913-05:00  INFO 5232 --- [envios] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-11T01:15:55.914-05:00  INFO 5232 --- [envios] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-01-11T01:15:55.992-05:00  INFO 5232 --- [envios] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-11T01:15:55.993-05:00  INFO 5232 --- [envios] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1956 ms
+2025-01-11T01:15:56.234-05:00  INFO 5232 --- [envios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-11T01:15:56.568-05:00  INFO 5232 --- [envios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: e471d858-179a-4b4b-9299-0d2ec12ece5e
+2025-01-11T01:15:56.570-05:00  INFO 5232 --- [envios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-11T01:15:56.650-05:00  INFO 5232 --- [envios] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-11T01:15:56.740-05:00  INFO 5232 --- [envios] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2025-01-11T01:15:56.797-05:00  INFO 5232 --- [envios] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-11T01:15:57.182-05:00  INFO 5232 --- [envios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-11T01:15:57.307-05:00  INFO 5232 --- [envios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 15.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-11T01:15:58.701-05:00  INFO 5232 --- [envios] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-11T01:15:58.705-05:00  INFO 5232 --- [envios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-11T01:15:59.081-05:00  INFO 5232 --- [envios] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-11T01:15:59.750-05:00  WARN 5232 --- [envios] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-11T01:16:00.219-05:00  INFO 5232 --- [envios] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-01-11T01:16:00.234-05:00  INFO 5232 --- [envios] [main] envios.envios.EnviosApplication          : Started EnviosApplication in 6.951 seconds (process running for 7.657)
+2025-01-11T01:16:04.447-05:00  INFO 5232 --- [envios] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-11T01:16:04.448-05:00  INFO 5232 --- [envios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-11T01:16:04.455-05:00  INFO 5232 --- [envios] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms

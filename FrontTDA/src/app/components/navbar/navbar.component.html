@@ -11,7 +11,7 @@
                     <a class="nav-link " aria-current="page" href="#">Sedes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Envios</a>
+                    <a class="nav-link" href="#" routerLink="/envios" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Envios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Seguimiento</a>
@@ -26,6 +26,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#" routerLink="/catalogo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Catálogo</a></li>
+                        <li><a class="dropdown-item" href="#" routerLink="/gestionusuario" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Usuarios</a></li>
                         <li><a class="dropdown-item" href="#">Permisos</a></li>
                         <li><a class="dropdown-item" href="#" >Reportes</a></li>
                         <li>
@@ -39,7 +40,7 @@
 
         <div class="d-flex ">
             <button class="btn btn-outline-primary me-3" type="button">
-                Iniciar Sesión 
+                Iniciar Sesión
             </button>
 
             <div class="dropdown d-flex align-items-center ">

@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnvioComponent } from './components/envios/envio/envio.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { EnvioComponent } from './components/envios/envio/envio.component';
     LoginComponent,
     CatalogoComponent,
     CatalogoFormComponent,
-    EnvioComponent
+    EnvioComponent,
+    CreateEnvioComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { EnvioComponent } from './components/envios/envio/envio.component';
       preventDuplicates: false,
       progressBar: true
     }),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

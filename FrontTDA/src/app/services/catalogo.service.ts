@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CatalogoService {
 
-  url= "http://localhost:8095/Catalogo";
+  private url= "http://localhost:8095/Catalogo";
   
     constructor( private http: HttpClient) { }
   

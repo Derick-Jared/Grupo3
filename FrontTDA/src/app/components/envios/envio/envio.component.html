@@ -1,0 +1,379 @@
+<div>
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                    Envios</h1>
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                    <li class="breadcrumb-item text-muted">
+                        <div class="hover-active-primary text-muted text-hover-primary">Envios</div>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                    </li>
+                    <li class="breadcrumb-item text-muted">Listar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- tabla -->
+    <!-- <div id="kt_app_content" class="app-content flex-column-fluid">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="card card-flush">
+                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                    <div class="card-title">
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <input type="text" data-kt-ecommerce-product-filter="search"
+                                class="form-control form-control w-250px ps-12" placeholder="Buscar" wire:model.live.debounce.500ms="busqueda" autocomplete="off"/>
+                        </div>
+                    </div>
+                        <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modal-registrar-lineasInv">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-circle-plus fs-5 pe-2"></i>Agregar</span>
+                                </div>
+                            </button>
+                        </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="table-responsive">
+                        <div class="table-responsive">
+                            <table class="table align-middle table-row-dashed fs-6 gy-5">
+                                <thead>
+                                    <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                        <th class="col-md-2">Nombre</th>
+                                        <th class="col-auto">Descripción</th>
+                                        <th class="col-md-2">Área</th>
+                                        <th class="col-md-1 text-center">Fecha</th>
+                                        <th class="col-md-2 text-center">Estado</th>
+                                        <th class="col-md-1 text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($listaInvestigacion as $row)
+                                        <tr>
+                                            <td>{{ $row->nombre }}</td>
+                                            <td>{{ $row->descripcion }}</td>
+                                            <td>{{ $row->areas->nombre }}</td>
+                                            <td class="col-md-1 text-center">{{ $row->created_at->format('d/m/Y') }}</td>
+                                            <td class="text-center pe-0" data-order="Scheduled">
+                                                <div class="badge badge-light-success">Habilitado</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div>
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-bg-light btn-active-color-primary p-1"
+                                                             data-bs-toggle="modal"
+                                                            data-bs-placement="bottom"
+                                                            data-bs-target="#modal-editar-lineasInv">
+                                                            <div data-bs-toggle="tooltip"
+                                                                data-bs-placement="bottom" title="Editar">
+                                                                <i class="fa-solid fa-edit fs-4 p-0"></i>
+                                                            </div>
+                                                        </button>
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-bg-light btn-active-color-primary p-1"
+                                                             data-bs-toggle="modal"
+                                                            data-bs-placement="bottom"
+                                                            data-bs-target="#modal-estado-lineasInv">
+                                                            <div data-bs-toggle="tooltip"
+                                                                data-bs-placement="bottom" title="Estado">
+                                                                <i class="fa-solid fa-{{ $seg }} fs-4 p-0"></i>
+                                                            </div>
+                                                        </button>
+                                                        <button type="button"
+                                                            class="btn btn-sm btn-bg-light btn-active-color-primary p-1"
+                                                             data-bs-toggle="modal"
+                                                            data-bs-placement="bottom"
+                                                            data-bs-target="#modal-eliminar-lineasInv">
+                                                            <div data-bs-toggle="tooltip"
+                                                                data-bs-placement="bottom" title="Eliminar">
+                                                                <i class="fa-solid fa-trash fs-4 p-0"></i>
+                                                            </div>
+                                                        </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" class="text-muted text-center">No existe registro de Líneas de Investigación.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                            <div class="py-3">
+                                {{ $listaInvestigacion->links() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+     <!-- {{-- Modal registrar--}}
+     <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-registrar-lineasInv">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="registrarLinea">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Registrar Línea de Investigación</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                        </div>
+                    </div>
+                    <div class="modal-body pb-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-floating mb-7">
+                                    <select class="form-select @error('area') is-invalid @enderror"
+                                        wire:model.live="area">
+                                        <option hidden selected>Seleccione un área</option>
+                                        @foreach ($listaArea as $row)
+                                            <option value="{{ $row->id }}">
+                                                {{ $row->nombre }}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="form-label required">Área</label>
+                                    @error('area')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating mb-7">
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"
+                                        placeholder="" wire:model.live="nombre" maxlength="255" autocomplete="off" />
+                                    <label class="form-label required">Nombre</label>
+                                    @error('nombre')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating mb-7">
+                                    <textarea class="form-control  @error('descripcion') is-invalid @enderror" data-kt-autosize="true" placeholder=""
+                                        maxlength="2500" wire:model.live="descripcion"></textarea>
+                                    <label class="form-label    required">Descripcion</label>
+                                    @error('descripcion')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer py-3">
+                        <button type="button" wire:click='limpiar' class="btn btn-light text-hover-primary" data-bs-dismiss="modal">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                            </div>
+                        </button>
+                        @if (auth('web')->user()->hasAccesos('INVDO', 'Línea de Investigación', 'CREAR'))
+                            <button type="submit" class="btn btn-primary">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+                                </div>
+                            </button>
+                        @endif
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal editar--}}
+    <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-editar-lineasInv">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="editarLinea">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Editar línea de investigación</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close" wire:click="limpiar()">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+                    @if(!$idLinea)
+                        <div class="modal-body pb-0">
+                            <div class="text-center p-5">
+                                <div class="spinner-border text-primary p-3" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-7">
+                                        <select class="form-select is-valid @error('area') is-invalid @enderror"
+                                            wire:model.live="area">
+                                            <option hidden selected>Seleccione un área</option>
+                                                @foreach ($listaArea as $row)
+                                                <option value="{{ $row->id }}">
+                                                    {{ $row->nombre }}</option>
+                                                @endforeach
+                                        </select>
+                                        <label class="form-label required">Área</label>
+                                        @error('area')
+                                            <div class="text-danger">
+                                                <span class="error">{{ $message }}</span>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-7">
+                                        <input type="text" class="form-control is-valid  @error('nombre') is-invalid @enderror"
+                                            placeholder="" wire:model.live="nombre" maxlength="255" autocomplete="off" />
+                                        <label class="form-label required">Título</label>
+                                        @error('nombre')
+                                            <div class="text-danger">
+                                                <span class="error">{{ $message }}</span>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-7">
+                                        <textarea class="form-control is-valid   @error('descripcion') is-invalid @enderror" data-kt-autosize="true" placeholder=""
+                                            maxlength="255" wire:model.live="descripcion"></textarea>
+                                        <label class="required">Contenido</label>
+                                        @error('descripcion')
+                                            <div class="text-danger">
+                                                <span class="error">{{ $message }}</span>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer py-3">
+                            <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal" wire:click="limpiar()">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                                </div>
+                            </button>
+                            @if (auth('web')->user()->hasAccesos('INVDO', 'Línea de Investigación', 'EDITAR'))
+                                <button type="submit" class="btn btn-primary">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+                                    </div>
+                                </button>
+                            @endif
+                        </div>
+                    @endif
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- {{-- Modal estado--}}
+    <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-estado-lineasInv">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="estadoLinea">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Estado línea de investigación</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close" wire:click="limpiar()">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+                    @if(!$idLinea)
+                        <div class="modal-body pb-0">
+                            <div class="text-center p-5">
+                                <div class="spinner-border text-primary p-3" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                   @php $msg=$estado == 'HAB'?'impedira':'permitira';
+                                    <h5>¿Está seguro de que desea cambiar el estado de esta línea de investigación? Este proceso {{$msg}} que la línea de investigación se muestre en el portal</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer py-3">
+                            <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal" wire:click="limpiar()">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                                </div>
+                            </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+                                    </div>
+                                </button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- {{-- Modal eliminar--}}
+    <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-eliminar-lineasInv">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="eliminarLinea">
+                    <div class="modal-header bg-danger p-4">
+                        <h5 class="modal-title text-white px-4">Eliminar línea de investigación</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close" wire:click="limpiar()">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+                        <div class="modal-body pb-0">
+                            <div class="text-center p-5">
+                                <div class="spinner-border text-danger p-3" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>¿Está seguro de que desea eliminar esta línea de investigación? Este proceso eliminará la línea de investigación de forma permanente.</h5>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer py-3">
+                            <button type="button" class="btn btn-light text-hover-danger" data-bs-dismiss="modal" wire:click="limpiar()">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                                </div>
+                            </button>
+                                <button type="submit" class="btn btn-danger">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span><i class="fa-solid fa-trash fs-5 pe-2"></i>Eliminar</span>
+                                    </div>
+                                </button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+</div>

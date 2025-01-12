@@ -12,7 +12,9 @@ import { CatalogoFormComponent } from './components/configuracion/catalogo-form/
 import { CatalogoComponent } from './components/configuracion/catalogo/catalogo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EnvioComponent } from './components/envios/envio/envio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UsuarioComponent,
     LoginComponent,
     CatalogoComponent,
-    CatalogoFormComponent
+    CatalogoFormComponent,
+    EnvioComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right', 
+      preventDuplicates: false,
+      progressBar: true
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

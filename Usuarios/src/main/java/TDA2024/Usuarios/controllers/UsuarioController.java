@@ -61,8 +61,8 @@ public class UsuarioController {
 
 
     @PostMapping(UsuarioRoutes.LOGIN)
-    public boolean login(@RequestParam String email, @RequestParam String password) {
-        return usuarioService.validaLogin(email, password);
+    public boolean login(@RequestBody UsuarioModel user) {
+        return usuarioService.validaLogin(user.getEmail(), user.getPassword());
     }
    
 

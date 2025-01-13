@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnvioComponent } from './components/envios/envio/envio.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateEnvioComponent } from './components/envios/create-envio/create-en
     CatalogoComponent,
     CatalogoFormComponent,
     EnvioComponent,
-    CreateEnvioComponent
+    CreateEnvioComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

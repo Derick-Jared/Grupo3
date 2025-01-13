@@ -40,5 +40,25 @@ public class UsuarioService implements IUsuarioService{
             return false;
         }
     }
+
+    @Override
+    public UsuarioModel findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean validaLogin(String email, String password) {
+        UsuarioModel usuario = usuarioRepository.findByEmail(email);
+        if (usuario != null) {
+            if(password.equals(usuario.getPassword())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    
+    
     
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import TDA2024.Usuarios.models.*;
 import TDA2024.Usuarios.routes.*;
@@ -52,4 +53,18 @@ public class UsuarioController {
             return "No se pudo eliminar el usuario.";
         }
     }
+
+    @GetMapping(UsuarioRoutes.GET_BY_EMAIL)
+    public UsuarioModel getByEmail(@PathVariable String email) {
+        return usuarioService.findByEmail(email);
+    }
+
+
+    @PostMapping(UsuarioRoutes.LOGIN)
+    public boolean login(@RequestParam String email, @RequestParam String password) {
+        return usuarioService.validaLogin(email, password);
+    }
+   
+
+
 }

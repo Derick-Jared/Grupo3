@@ -8,4 +8,6 @@ public interface IUsuarioService {
     public UsuarioModel add (UsuarioModel model);
     public UsuarioModel update(UsuarioModel model);
     public boolean delete (Integer id);
+    public UsuarioModel findByEmail (String email);
+    public boolean validaLogin ( String email, String password );
 }

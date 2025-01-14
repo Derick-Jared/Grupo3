@@ -37,6 +37,7 @@ export class PersonaService {
         user.idPersona = persona.id;
         user.creado_en = this.obtenerFechaHoraActual();
         user.creado_por = user.id;
+        user.estado = "ACTVO";
         // Crear el usuario y la persona en paralelo
         return forkJoin({
           user: this.http.post<Usuario>(this.url2 + 'create', user),

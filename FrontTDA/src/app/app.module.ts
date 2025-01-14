@@ -19,6 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
 import { IndexComponent } from './components/index/index.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
     EnvioComponent,
     CreateEnvioComponent,
     IndexComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,30 @@ export class AlertifyService {
     });
   }
 
+  confirm2(
+    message: string,
+    okCallback: () => any,
+    cancelCallback: () => any,
+    options?: { okText?: string; cancelText?: string; title?: string }
+  ) {
+    alertify.confirm(
+      options?.title || "Confirmación",
+      message,
+      function () {
+        okCallback();
+      },
+      function () {
+        cancelCallback();
+      }
+    ).set({
+      labels: {
+        ok: options?.okText || "OK",
+        cancel: options?.cancelText || "Cancelar"
+      }
+    });
+  }
+  
+
   success(message: string) {
     alertify.success(message);
   }

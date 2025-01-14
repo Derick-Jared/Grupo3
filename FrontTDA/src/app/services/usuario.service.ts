@@ -21,4 +21,9 @@ export class UsuarioService {
     console.log('como esta entrando :'+user.email+" "+user.password);
     return this.http.post<Usuario>(this.url+"login",user);
   }
+
+
+  getUsuariosByEstado(estado :String): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.url+"allByEstado/"+estado);
+  }
 }

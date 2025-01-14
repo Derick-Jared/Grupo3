@@ -10,3 +10,31 @@
   right: 0;
   left: auto;
 }
+
+.navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-brand,
+    .navbar-light .dropdown-menu .dropdown-item,
+    .navbar-light .btn-outline-primary {
+      color: white !important;
+    }
+
+    .navbar-light .navbar-toggler-icon {
+      background-color: white;
+    }
+
+    .navbar-light .dropdown-menu {
+      background-color: #ff6949;
+    }
+
+    .navbar-light .dropdown-menu .dropdown-item:hover {
+      background-color: #e65a3c;
+    }
+
+    .btn-outline-primary {
+      border-color: white;
+    }
+
+    .navbar .btn-outline-primary:hover {
+      background-color: white !important;
+      color: #ff6949 !important;
+    }

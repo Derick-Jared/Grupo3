@@ -4,7 +4,7 @@ export interface Usuario{
     password: String;
     tipo_usuario: String;
     idPersona: number;
-    estado: number;
+    estado: String;
     creado_por: number;
     creado_en: String;
     actualizado_por: number;

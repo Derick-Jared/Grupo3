@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario.model'
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
-import { AlertifyService } from 'src/app/services/alertify.service';
+import { AlertifyService } from 'src/app/core/alertify.service';
 
 
 @Component({

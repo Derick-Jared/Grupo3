@@ -4,7 +4,7 @@ import { Usuario } from 'src/app/models/usuario.model'
 import { Persona } from 'src/app/models/persona.model'
 import { PersonaService } from 'src/app/services/persona.service';
 import { Router } from '@angular/router';
-import { AlertifyService } from 'src/app/services/alertify.service';
+import { AlertifyService } from 'src/app/core/alertify.service';
 
 
 

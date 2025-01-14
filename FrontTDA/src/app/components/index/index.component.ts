@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertifyService } from 'src/app/services/alertify.service';
+import { AlertifyService } from 'src/app/core/alertify.service';
 
 @Component({
   selector: 'app-index',

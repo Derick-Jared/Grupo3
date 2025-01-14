@@ -1,0 +1,153 @@
+<div class="container-fluid py-5 h-100" style="background-color: #ff6949 ;">
+    <div class="row justify-content-center align-items-center h-80">
+        <div class="col-lg-8 col-xl-10">
+            <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                    <!-- Izquierda: Formulario -->
+                    <div class="col-md">
+                        <div class="card-body p-4 p-md-5 mx-md-4">
+                            <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+                                <p class="text-muted">Registro de Usuarios nuevos</p>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="tipo_documento">Tipo de Documento</label>
+                                            <select class="form-select" id="tipo_documento" name="tipo_documento" [(ngModel)]="tipo_documento" formControlName="tipo_documento">
+                                                <option value="DNI">DNI</option>
+                                                <option value="RUC">RUC</option>
+                                                <option value="CARNE_EXTRANJERIA">Carné de Extranjería</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="form2Example11">Cedula</label>
+                                            <input type="text" id="form2Example22" class="form-control" placeholder="Ingrese Cedula" formControlName="cedula"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                   
+                                
+                                <!-- Si el tipo de documento es RUC, se muestra el campo de Razón Social -->
+                                <div class="row" *ngIf="tipo_documento === 'RUC'">
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="razonSocial">Razón Social</label>
+                                            <input
+                                                type="text"
+                                                id="razonSocial"
+                                                class="form-control"
+                                                placeholder="Ingrese Razón Social"
+                                                formControlName="razon_social"
+                                                (input)="toUpperCase('razon_social')"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Si el tipo de documento no es RUC, se muestran los campos de Nombre y Apellidos -->
+                                <div class="row" *ngIf="tipo_documento !== 'RUC'">
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="nombres">Nombres</label>
+                                            <input
+                                                type="text"
+                                                id="nombres"
+                                                class="form-control"
+                                                placeholder="Ingrese Nombre"
+                                                formControlName="nombres"
+                                                (input)="toUpperCase('nombres')"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="apellidos">Apellidos</label>
+                                            <input
+                                                type="text"
+                                                id="apellidos"
+                                                class="form-control"
+                                                placeholder="Ingrese Apellidos"
+                                                formControlName="apellidos"
+                                                (input)="toUpperCase('apellidos')"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="form2Example11">Usuario</label>
+                                            <input type="text" id="form2Example22" class="form-control" placeholder="Ingrese Correo" formControlName="email"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16" style="color: red;">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"/>
+                                            </svg>
+                                            <label class="form-label" for="form2Example11">Contraseña</label>
+                                            <input type="password" id="form2Example22" class="form-control" placeholder="Ingrese Contraseña" formControlName="password"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example11">Direccion</label>
+                                            <input type="email" id="form2Example22" class="form-control" placeholder="Ingrese Direccion" formControlName="direccion"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example11">Telefono</label>
+                                            <input type="text" id="form2Example22" class="form-control" placeholder="Ingrese Telefono" formControlName="telefono"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="camposObligatorios" role="alert" style="color: red;">
+                                    Datos incorrectos, en campos obligatorios.
+                                </div>
+
+                                <!-- Botones de acción -->
+                                <div class="text-center pt-1 mb-4">
+                                    <div class="input-group-center">
+                                        <button class="btn btn-primary btn-block gradient-custom-2" type="submit">Crear Nueva Cuenta</button>
+                                        <button type="button" class="btn btn-outline-danger ms-2" routerLink="/login">Tengo una Cuenta</button>
+                                    </div>
+                                    <a class="text-muted d-block mt-2" href="#!">Has Olvidado tu  Contraseña?</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

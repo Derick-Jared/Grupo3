@@ -6,6 +6,7 @@ import { CatalogoComponent } from './components/configuracion/catalogo/catalogo.
 import { EnvioComponent } from './components/envios/envio/envio.component';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
 import { IndexComponent } from './components/index/index.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   //BRE A LLAMAR EN LA URL
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'catalogo', component: CatalogoComponent},
   { path: 'envios', component: EnvioComponent},
   { path: 'envios/create', component: CreateEnvioComponent},
-  { path: 'index', component: IndexComponent }
+  { path: 'index', component: IndexComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

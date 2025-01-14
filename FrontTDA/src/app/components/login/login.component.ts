@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
         } else {
           this.loginError = true;  
           this.router.navigate(['/login']);
-          this.resetForm();
         }
+        this.resetForm();
       }, error => {
         console.log(error);
         this.loginError = true; 

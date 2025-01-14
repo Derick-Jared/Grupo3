@@ -18,6 +18,7 @@ import { EnvioComponent } from './components/envios/envio/envio.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
 import { IndexComponent } from './components/index/index.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IndexComponent } from './components/index/index.component';
     CatalogoFormComponent,
     EnvioComponent,
     CreateEnvioComponent,
-    IndexComponent
+    IndexComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

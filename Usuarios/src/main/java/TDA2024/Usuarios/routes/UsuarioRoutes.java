@@ -9,4 +9,5 @@ public class UsuarioRoutes {
     public static final String DELETE =  "/delete/{id}"; 
     public static final String GET_BY_EMAIL =  "/getByEmail/{email}"; 
     public static final String LOGIN = "/login";  
+    public static final String GET_LAST_ID = "/getLastId"; 
 }

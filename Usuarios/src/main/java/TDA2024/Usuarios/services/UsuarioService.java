@@ -3,6 +3,7 @@ package TDA2024.Usuarios.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import TDA2024.Usuarios.models.PersonaModel;
 import TDA2024.Usuarios.models.UsuarioModel;
 import TDA2024.Usuarios.repositories.IUsuarioRepository;
 import TDA2024.Usuarios.services.interfaces.IUsuarioService;
@@ -55,6 +56,12 @@ public class UsuarioService implements IUsuarioService{
             }
         }
         return false;
+    }
+
+    @Override
+    public Integer findLastId() {
+        UsuarioModel ultimoUsuario = usuarioRepository.findFirstByOrderByIdDesc();
+        return (ultimoUsuario.getId() != null) ? ultimoUsuario.getId() : 0;
     }
 
 

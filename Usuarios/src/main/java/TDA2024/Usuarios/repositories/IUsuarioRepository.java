@@ -10,5 +10,5 @@ import TDA2024.Usuarios.models.UsuarioModel;
 public interface IUsuarioRepository extends MongoRepository <UsuarioModel , Integer> {
     
     UsuarioModel findByEmail(String email);
-    
+    UsuarioModel findFirstByOrderByIdDesc();
 }

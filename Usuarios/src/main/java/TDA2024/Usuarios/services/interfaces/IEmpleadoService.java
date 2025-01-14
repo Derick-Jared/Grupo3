@@ -8,4 +8,5 @@ public interface IEmpleadoService {
     public EmpleadoModel add (EmpleadoModel model);
     public EmpleadoModel update(EmpleadoModel model);
     public boolean delete (Integer id);
+    public Integer findLastId();
 }

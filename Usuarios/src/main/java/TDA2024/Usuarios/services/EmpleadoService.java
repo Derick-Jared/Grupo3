@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import TDA2024.Usuarios.models.EmpleadoModel;
+import TDA2024.Usuarios.models.PersonaModel;
 import TDA2024.Usuarios.repositories.IEmpleadoRepository;
 import TDA2024.Usuarios.services.interfaces.IEmpleadoService;
 
@@ -40,6 +41,12 @@ public class EmpleadoService implements IEmpleadoService {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public Integer findLastId() {
+        EmpleadoModel ultimoUsuario = empleadoRepository.findFirstByOrderByIdDesc();
+        return (ultimoUsuario.getId() != null) ? ultimoUsuario.getId() : 0;
     }
     
 }

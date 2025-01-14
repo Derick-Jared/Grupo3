@@ -10,4 +10,5 @@ public interface IUsuarioService {
     public boolean delete (Integer id);
     public UsuarioModel findByEmail (String email);
     public boolean validaLogin ( String email, String password );
+    public Integer findLastId();
 }

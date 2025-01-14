@@ -50,4 +50,8 @@ public class PersonaController {
             return "No se pudo eliminar el persona.";
         }
     }
+    @GetMapping(PersonaRoutes.GET_LAST_ID)
+    public Integer getLastById() {
+        return personaService.findLastId();
+    }
 }

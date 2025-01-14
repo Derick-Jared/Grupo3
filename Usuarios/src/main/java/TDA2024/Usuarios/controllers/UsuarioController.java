@@ -64,6 +64,11 @@ public class UsuarioController {
     public boolean login(@RequestBody UsuarioModel user) {
         return usuarioService.validaLogin(user.getEmail(), user.getPassword());
     }
+
+    @GetMapping(UsuarioRoutes.GET_LAST_ID)
+    public Integer getLastById() {
+        return usuarioService.findLastId();
+    }
    
 
 

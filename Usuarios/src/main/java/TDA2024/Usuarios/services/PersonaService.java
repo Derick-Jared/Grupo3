@@ -41,5 +41,11 @@ public class PersonaService implements IPersonaService {
             return false;
         }
     }
+
+    @Override
+    public Integer findLastId() {
+        PersonaModel ultimoUsuario = personaRepository.findFirstByOrderByIdDesc();
+        return (ultimoUsuario.getId() != null) ? ultimoUsuario.getId() : 0;
+    }
     
 }

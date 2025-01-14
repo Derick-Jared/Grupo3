@@ -51,4 +51,9 @@ public class EmpleadoController {
             return "No se pudo eliminar el empleado.";
         }
     }
+
+    @GetMapping(EmpleadoRoutes.GET_LAST_ID)
+    public Integer getLastById() {
+        return empleadoService.findLastId();
+    }
 }

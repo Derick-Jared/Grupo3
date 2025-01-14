@@ -8,4 +8,5 @@ public interface IPersonaService {
     public PersonaModel add (PersonaModel model);
     public PersonaModel update(PersonaModel model);
     public boolean delete (Integer id);
+    public Integer findLastId();
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario.model'
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  constructor(private userService: UsuarioService, private fb: FormBuilder, private router: Router) {
+  constructor(private userService: UsuarioService, private fb: FormBuilder, private router: Router,private alertify: AlertifyService) {
     this.userForm = this.fb.group({
       email: [''],
       password: ['']
@@ -36,8 +37,9 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.userForm.value).subscribe(data => {
         console.log(data);
         if (data) {
-          this.router.navigate(['/index']);
-          this.loginError = false;
+          this.router.navigate(['/index']).then(() => {
+            this.alertify.success('¡Inicio de Sesion!');
+          });
         } else {
           this.loginError = true;  
           this.router.navigate(['/login']);

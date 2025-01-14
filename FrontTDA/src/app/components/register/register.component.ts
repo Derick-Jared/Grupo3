@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/models/usuario.model'
 import { Persona } from 'src/app/models/persona.model'
 import { PersonaService } from 'src/app/services/persona.service';
 import { Router } from '@angular/router';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 
 
@@ -40,7 +41,7 @@ export class RegisterComponent implements OnInit{
     })
   }
 
-  constructor(private personaService: PersonaService, private fb: FormBuilder, private router: Router) {
+  constructor(private personaService: PersonaService, private fb: FormBuilder, private router: Router,private alertify: AlertifyService) {
       this.personaForm = this.fb.group({
         tipo_documento: [''],
         cedula: [''],
@@ -71,7 +72,9 @@ export class RegisterComponent implements OnInit{
         this.personaService.addPersona(this.personaForm.value,this.userForm.value).subscribe(data=>{
           console.log(data);
           if (data) {
-            this.router.navigate(['/index']);
+            this.router.navigate(['/index']).then(() => {
+              this.alertify.success('¡Se Registro Correctamente!');
+            });
             this.camposObligatorios=false;
           } else { 
             this.router.navigate(['/register']);

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import TDA2024.Usuarios.models.*;
 import TDA2024.Usuarios.routes.*;
@@ -70,6 +69,9 @@ public class UsuarioController {
         return usuarioService.findLastId();
     }
    
-
+    @GetMapping(UsuarioRoutes.GET_ALL_BY_ESTADO)
+	public List<UsuarioModel> listarByEstado(@PathVariable String estado) {
+		return (List<UsuarioModel>) usuarioService.findAllEstado(estado);
+	}
 
 }

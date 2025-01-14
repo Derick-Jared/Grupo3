@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import TDA2024.Usuarios.models.EmpleadoModel;
-import TDA2024.Usuarios.models.PersonaModel;
 import TDA2024.Usuarios.repositories.IEmpleadoRepository;
 import TDA2024.Usuarios.services.interfaces.IEmpleadoService;
 

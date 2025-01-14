@@ -11,4 +11,5 @@ public interface IUsuarioService {
     public UsuarioModel findByEmail (String email);
     public boolean validaLogin ( String email, String password );
     public Integer findLastId();
+    public Iterable<UsuarioModel> findAllEstado(String estado);
 }

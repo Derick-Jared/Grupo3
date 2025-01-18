@@ -1,51 +1,46 @@
 //Asignacion 
     18/01/2025
+CREATE DATABASE `Asignacion` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-CREATE TABLE Asignacion.asignacion_envio (
-	id INT auto_increment NOT NULL,
-	fechaAsignacion DATE NULL,
-	idChofer INT NULL,
-	idVehiculo INT NULL,
-	idEnvio INT NULL,
-	estado varchar(5) NULL,
-	creado_por INT NULL,
-	creado_en DATE NULL,
-	actualizado_por INT NULL,
-	actualizado_en DATE NULL,
-	CONSTRAINT asignacion_envio_pk PRIMARY KEY (id)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `asignacion_envio` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fechaAsignacion` date DEFAULT NULL,
+  `idChofer` int DEFAULT NULL,
+  `idVehiculo` int DEFAULT NULL,
+  `idEnvio` int DEFAULT NULL,
+  `estado` varchar(5) DEFAULT NULL,
+  `creado_por` int DEFAULT NULL,
+  `creado_en` date DEFAULT NULL,
+  `actualizado_por` int DEFAULT NULL,
+  `actualizado_en` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE Asignacion.vehiculo (
-	id INT NULL,
-	placa varchar(20) NULL,
-	marca varchar(50) NULL,
-	modelo varchar(50) NULL,
-	capacidadCarga DECIMAL (10,2) NULL,
-	estado varchar(5) NULL,
-	creado_por INT NULL,
-	creado_en DATE NULL,
-	actualizado_por INT NULL,
-	actualizado_en DATE NULL
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE Asignacion.mantenimiento (
-	id INT auto_increment NOT NULL,
-	descripcion varchar(500) NULL,
-	estado varchar(5) NULL,
-	fechaInicio DATE NULL,
-	fechaFin DATE NULL,
-	idVehiculo INT NULL,
-	creado_por INT NULL,
-	creado_en DATE NULL,
-	actualizado_por INT NULL,
-	actualizado_en DATE NULL
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `vehiculo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `placa` varchar(50) DEFAULT NULL,
+  `modelo` varchar(50) DEFAULT NULL,
+  `capacidadCarga` decimal(10,0) DEFAULT NULL,
+  `estado` varchar(5) DEFAULT NULL,
+  `creado_por` int DEFAULT NULL,
+  `creado_en` date DEFAULT NULL,
+  `actualizado_por` int DEFAULT NULL,
+  `actualizado_en` date DEFAULT NULL,
+  `marca` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGIN
+
+CREATE TABLE `mantenimiento` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `estado` varchar(5) DEFAULT NULL,
+  `fechaInicio` date DEFAULT NULL,
+  `fechaFin` date DEFAULT NULL,
+  `idVehiculo` int DEFAULT NULL,
+  `creado_por` int DEFAULT NULL,
+  `creado_en` date DEFAULT NULL,
+  `actualizado_por` int DEFAULT NULL,
+  `actualizado_en` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

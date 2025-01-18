@@ -1,22 +1,19 @@
 package com.example.gateway.filters;
 
-import org.springframework.cloud.gateway.filter.GatewayFilter;
-import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+
+import java.security.Key;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-
-import java.security.Key;
-
-import javax.crypto.spec.SecretKeySpec;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
-
 import io.jsonwebtoken.SignatureAlgorithm;
+import javax.crypto.spec.SecretKeySpec;
 
 @Component
 public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAuthenticationFilter.Config>{
@@ -26,7 +23,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
     }
 
     @Value("${jwt.secret}")
-    private String secreto;
+    private String secret;
 
     @Override
     public GatewayFilter apply(Config config) {
@@ -55,7 +52,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
 			}
 
 			try {
-				Key hmacKey = new SecretKeySpec(secreto.getBytes(), SignatureAlgorithm.HS256.getJcaName());
+				Key hmacKey = new SecretKeySpec(secret.getBytes(), SignatureAlgorithm.HS256.getJcaName());
 				Jws<Claims> jwt = Jwts.parserBuilder().setSigningKey(hmacKey).build().parseClaimsJws(parts[1]);
 			} catch (Exception e) {
 				System.out.println("INVALID_TOKEN");
@@ -67,6 +64,6 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
 		};
     }
     
-    public class Config {
+    public static class Config {
     }
 }

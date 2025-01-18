@@ -19,7 +19,7 @@ spring:
               allowedHeaders: "*"
       routes:      
       - id: appsecurity
-        uri: http://localhost:81
+        uri: http://localhost:8092
         predicates:
           - Path=/security/**
         filters:

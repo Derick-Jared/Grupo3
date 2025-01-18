@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.security.dto.AuthRequest;
 import com.example.security.dto.AuthResponse;
@@ -17,6 +19,8 @@ import com.example.security.jwt.JwtToken;
 import com.example.security.models.UsuarioModel;
 import com.example.security.service.AuthService;
 
+@RestController
+@RequestMapping("/api/auth")
 public class AuthController {
     
     @Autowired
@@ -32,7 +36,7 @@ public class AuthController {
         return authService.getAcces();
     }
 
-    @PostMapping()
+    @PostMapping("/token")
     public ResponseEntity<?> post(@RequestBody AuthRequest request) throws Exception {
         logger.info("Post: Username {} - Password {}", request.getUsername(), request.getPassword());
 

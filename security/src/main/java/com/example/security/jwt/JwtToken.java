@@ -8,12 +8,14 @@ import java.util.UUID;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.example.security.dto.AuthRequest;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+@Component
 public class JwtToken {
     public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
 

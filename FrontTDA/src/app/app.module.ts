@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnvioComponent } from './components/envios/envio/envio.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
+import { SedeComponent } from './components/sede/sede/sede.component';
+import { SedeFormComponent } from './components/sede/sede-form/sede-form.component';
 import { IndexComponent } from './components/index/index.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-form.component';
@@ -32,6 +34,8 @@ import { UsuarioFormComponent } from './components/usuario/usuario-form/usuario-
     CatalogoFormComponent,
     EnvioComponent,
     CreateEnvioComponent,
+    SedeComponent,
+    SedeFormComponent,
     IndexComponent,
     RegisterComponent,
     UsuarioFormComponent

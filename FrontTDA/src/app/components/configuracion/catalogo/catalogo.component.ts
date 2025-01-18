@@ -76,8 +76,13 @@ export class CatalogoComponent implements OnInit {
         if(result.id){
           this.catalogoService.updateItem(result).subscribe( () => {
             this.toasteService.showSuccess("Registro actualizado correctamente");
-            this.tablaSelec = -1;
-            this.loadTablas();
+            if(tipo == "tabla"){
+              this.loadTablas();
+              this.tablaSelec = -1;
+            }
+            else{
+              this.loadItems(this.tablaSelec, this.idTablaSelec, this.descCor, this.descLar);
+            }
           }, (error) => {
             this.toasteService.showError("Opps, ocurrio un problema o un campo que ya existe.");
           })
@@ -87,8 +92,13 @@ export class CatalogoComponent implements OnInit {
           result.tabla = tabla;
           this.catalogoService.createItem(result).subscribe( () => {
             this.toasteService.showSuccess("Registro guardado correctamente");
-            this.tablaSelec = -1;
-            this.loadTablas();
+            if(tipo == "tabla"){
+              this.loadTablas();
+              this.tablaSelec = -1;
+            }
+            else{
+              this.loadItems(this.tablaSelec, this.idTablaSelec, this.descCor, this.descLar);
+            }
           }, (error) => {
             this.toasteService.showError("Opps, ocurrio un problema o un campo que ya existe.");
           })

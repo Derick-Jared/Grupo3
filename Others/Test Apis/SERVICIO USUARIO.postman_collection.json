@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "42ef2797-6783-4f60-9c1e-99f208dcdc8a",
+		"name": "SERVICIO USUARIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39372059"
+	},
+	"item": [
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "ADD_USUARIO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"email\": \"darvindiaz@gmail.com\",\r\n    \"password\": \"1234papichulo\",\r\n    \"tipo_usuario\": \"Admin\",\r\n    \"idPersona\": 2,\r\n    \"estado\": \"ACTVO\",\r\n    \"creado_por\": 10,\r\n    \"creado_en\": \"Mon Dec 16 00:38:41 COT 2024\",\r\n    \"actualizado_por\": 3,\r\n    \"actualizado_en\": \"Mon Dec 16 00:38:41 COT 2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/usuario/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL_USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/usuario/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/usuario/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_USUARIO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"darvindiaz@gmail.com\",\r\n    \"password\": \"1234papichulo\",\r\n    \"tipo_usuario\": \"Admin\",\r\n    \"idPersona\": 2,\r\n    \"estado\": \"ACTVO\",\r\n    \"creado_por\": 10,\r\n    \"creado_en\": \"Mon Dec 16 00:38:41 COT 2024\",\r\n    \"actualizado_por\": 3,\r\n    \"actualizado_en\": \"Mon Dec 16 00:38:41 COT 2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/usuario/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_USUARIO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/usuario/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETBYEMAIL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/usuario/login?email=darvindiaz@gmail.com&password=1234papichulo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "darvindiaz@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "1234papichulo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_LAST_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/usuario/getLastId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"usuario",
+								"getLastId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_ALL_BY_ESTADO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/tipousuario/\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tipousuario",
+								"\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "persona",
+			"item": [
+				{
+					"name": "ADD_PERSONA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"cedula\": \"12345678\",\r\n    \"tipo_documento\": \"DNI\",\r\n    \"nombres\": \"Pepe\",\r\n    \"apellidos\": \"Diaz Paima\",\r\n    \"razon_social\": \"\",\r\n    \"direccion\": \"fm 1235\",\r\n    \"telefono\": \"919525984\",\r\n    \"email\": \"pepitaxd@gmail.com\",\r\n    \"estado\": \"123\",\r\n    \"creado_por\": 12,\r\n    \"creado_en\": \"Mon Dec 16 00:38:41 COT 2024\",\r\n    \"actualizado_por\": 32,\r\n    \"actualizado_en\": \"Mon Dec 16 00:38:41 COT 2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/persona/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL_PERSONA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/persona/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_PERSONA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/persona/get/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"get",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_PERSONA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"cedula\": \"12345678\",\r\n    \"tipo_documento\": \"DNI\",\r\n    \"nombres\": \"RA\",\r\n    \"apellidos\": \"Diaz Paima\",\r\n    \"razon_social\": \"\",\r\n    \"direccion\": \"fm 1235\",\r\n    \"telefono\": \"919525984\",\r\n    \"email\": \"pepitaxd@gmail.com\",\r\n    \"estado\": \"123\",\r\n    \"creado_por\": 12,\r\n    \"creado_en\": \"Mon Dec 16 00:38:41 COT 2024\",\r\n    \"actualizado_por\": 32,\r\n    \"actualizado_en\": \"Mon Dec 16 00:38:41 COT 2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/persona/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_PERSONA",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/persona/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_LAST_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/persona/getLastId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"persona",
+								"getLastId"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "empleado",
+			"item": [
+				{
+					"name": "ADD_EMPLEADO",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL_EMPLEADO",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_EMPLEADO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"cargo\": \"admin\",\r\n    \"estado\": \"DSCTO\",\r\n    \"idPersona\": 6,\r\n    \"creado_por\": 7,\r\n    \"creado_en\": \"Mon Dec 16 00:38:41 COT 2024\",\r\n    \"actualizado_por\": 9,\r\n    \"actualizado_en\": \"Mon Dec 16 00:38:41 COT 2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/empleado/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"empleado",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_EMPLEADO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/empleado/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"empleado",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_EMPLEADO",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

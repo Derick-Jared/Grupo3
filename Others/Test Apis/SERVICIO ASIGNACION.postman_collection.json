@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "8dc6b34a-8e8a-48ff-ad00-df40cf53aba4",
+		"name": "SERVICIO ASIGNACION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39372059"
+	},
+	"item": [
+		{
+			"name": "asignacion_envio",
+			"item": [
+				{
+					"name": "GETALL_ASIGNACION",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/asignacion_envio/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"asignacion_envio",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETBYIDASIGNACION",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/asignacion_envio/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"asignacion_envio",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_ASIGNACION",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fechaAsignacion\": \"2024-11-01\",\r\n    \"idChofer\": \"2\",\r\n    \"idVehiculo\": \"3\",\r\n    \"idEnvio\": \"432\",\r\n    \"estado\": \"ACTVO\",\r\n    \"creado_por\": \"3\",\r\n    \"creado_en\": null,\r\n    \"actualizado_por\": null,\r\n    \"actualizado_en\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/asignacion_envio/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"asignacion_envio",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_ASIGNACION",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 3,\r\n        \"fechaAsignacion\": \"2024-11-01\",\r\n        \"idChofer\": 21,\r\n        \"idVehiculo\": 2,\r\n        \"idEnvio\": 321,\r\n        \"estado\": \"DSTVO\",\r\n        \"creado_por\": \"3\",\r\n        \"creado_en\": null,\r\n        \"actualizado_por\": null,\r\n        \"actualizado_en\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/asignacion_envio/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"asignacion_envio",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DETELETE_ASIGNACION",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/asignacion_envio/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"asignacion_envio",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vehiculo",
+			"item": [
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/vehiculo/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"vehiculo",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETBYIDVEHICULO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/vehiculo/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"vehiculo",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_VEHICULO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placa\": \"2321\",\r\n    \"marca\": \"HONDA\",\r\n    \"modelo\": \"HASH1334\",\r\n    \"capacidadCarga\": \"4543.00\",\r\n    \"estado\": \"ACTVO\",\r\n    \"creado_por\": null,\r\n    \"creado_en\": null,\r\n    \"actualizado_por\": null,\r\n    \"actualizado_en\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/vehiculo/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"vehiculo",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_VEHICULO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"placa\": \"1231-HO\",\r\n    \"marca\": \"HONDA\",\r\n    \"modelo\": \"HASH1334\",\r\n    \"capacidadCarga\": \"4543.00\",\r\n    \"estado\": \"ACTVO\",\r\n    \"creado_por\": null,\r\n    \"creado_en\": null,\r\n    \"actualizado_por\": null,\r\n    \"actualizado_en\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/vehiculo/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"vehiculo",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_VEHICULO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/vehiculo/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"vehiculo",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mantenimiento",
+			"item": [
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/mantenimiento/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"mantenimiento",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETBYIDMANTENIMIENTO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/mantenimiento/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"mantenimiento",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD_MANTENIMIENTO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"1\",\r\n    \"estado\": \"23\",\r\n    \"fechaInicio\": \"2024-12-03\",\r\n    \"fechaFin\": \"2024-12-09\",\r\n    \"idVehiculo\": 2,\r\n    \"creado_por\": 3,\r\n    \"creado_en\": \"2024-12-03\",\r\n    \"actualizado_por\": null,\r\n    \"actualizado_en\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/mantenimiento/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"mantenimiento",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE_MANTENIMIENTO",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"descripcion\": \"3232\",\r\n    \"estado\": \"23\",\r\n    \"fechaInicio\": \"2024-12-03\",\r\n    \"fechaFin\": \"2024-12-09\",\r\n    \"idVehiculo\": \"2\",\r\n    \"creado_por\": \"2\",\r\n    \"creado_en\": \"2024-12-03\",\r\n    \"actualizado_por\": null,\r\n    \"actualizado_en\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/mantenimiento/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"mantenimiento",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_MANTENIMIENTO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/mantenimiento/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"mantenimiento",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

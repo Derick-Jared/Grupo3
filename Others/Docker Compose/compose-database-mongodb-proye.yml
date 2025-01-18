@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:   
+  mongo1:
+    image: mongo:5.0.2
+    container_name: database-mongo-1
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=unu2024dos
+    ports:  
+      - 27018:27017
+    networks:
+      - td2024 
+
+  mongo2:
+    image: mongo:5.0.2
+    container_name: database-mongo-2
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=unu2024dos
+    ports:  
+      - 27019:27017
+    networks:
+      - td2024 
+    
+networks:
+  td2024:
+    name: ms-unu-2024

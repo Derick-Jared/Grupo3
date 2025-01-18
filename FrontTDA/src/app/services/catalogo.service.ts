@@ -8,27 +8,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CatalogoService {
 
-  private url= "http://localhost:8095/Catalogo";
-  
-    constructor( private http: HttpClient) { }
-  
-    getTablas(): Observable<Catalogo[]> {
-      return this.http.get<Catalogo[]>(`${this.url}/Tabla/Listar`);
-    }
+  private url = "http://localhost:8095/Catalogo";
 
-    getItems(tabla:number): Observable<Catalogo[]> {
-      return this.http.get<Catalogo[]>(`${this.url}/Tabla/Listar/${tabla}`);
-    }
+  constructor(private http: HttpClient) { }
 
-    getItemDescripcion(desc:string): Observable<Catalogo> {
-      return this.http.get<Catalogo>(`${this.url}/Item/${desc}`);
-    }
+  getTablas(): Observable<Catalogo[]> {
+    return this.http.get<Catalogo[]>(`${this.url}/Tabla/Listar`);
+  }
 
-    createItem(item:any): Observable<Catalogo> {
-      return this.http.post<Catalogo>(`${this.url}/Item`,item);
-    }
+  getItems(tabla: number): Observable<Catalogo[]> {
+    return this.http.get<Catalogo[]>(`${this.url}/Tabla/Listar/${tabla}`);
+  }
 
-    updateItem(item:any): Observable<Catalogo> {
-      return this.http.put<Catalogo>(`${this.url}/Item`,item);
-    }
+  getItemDescripcion(desc: string): Observable<Catalogo> {
+    return this.http.get<Catalogo>(`${this.url}/Item/${desc}`);
+  }
+
+  createItem(item: any): Observable<Catalogo> {
+    return this.http.post<Catalogo>(`${this.url}/Item`, item);
+  }
+
+  updateItem(item: any): Observable<Catalogo> {
+    return this.http.put<Catalogo>(`${this.url}/Item`, item);
+  }
 }

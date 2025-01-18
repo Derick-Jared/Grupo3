@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CatalogoComponent } from './components/configuracion/catalogo/catalogo.component';
 import { EnvioComponent } from './components/envios/envio/envio.component';
 import { CreateEnvioComponent } from './components/envios/create-envio/create-envio.component';
+import { SedeComponent } from './components/sede/sede/sede.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'gestionusuario', component: UsuarioComponent },
   { path: '', redirectTo: '/gestionusuario', pathMatch: 'full' },
   { path: 'catalogo', component: CatalogoComponent},
+  { path: 'sede', component: SedeComponent },
   { path: 'envios', component: EnvioComponent},
   { path: 'envios/create', component: CreateEnvioComponent}
 ];

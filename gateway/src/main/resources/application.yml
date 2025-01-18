@@ -57,4 +57,12 @@ spring:
           - StripPrefix=1
           - JwtAuthenticationFilter
            
+      - id: appasignacion
+        uri: http://localhost:8085
+        predicates:
+          - Path=/asignacion/**
+        filters:
+          - StripPrefix=1
+          - JwtAuthenticationFilter
+           
   

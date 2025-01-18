@@ -1,0 +1,357 @@
+<app-navbar></app-navbar>
+
+<div>
+    <div class="py-3 py-lg-6 bg-light ">
+        <!-- Toolbar -->
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Page Title -->
+            <div class="page-title d-flex flex-column">
+                <h1 class="text-dark fw-bold fs-3">Catálogo</h1>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-xxl mt-4">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-header text-center">
+                            <h3 class="d-flex align-items-center justify-content-center mb-0">
+                                <i class="fa-solid fa-list-ul fs-3 me-2"></i>
+                                Lista de Tablas
+                            </h3>
+                            <button class="btn btn-sm btn-outline-primary mt-2" 
+                                (click)="openCatalogoModal(null,'crear','tabla')">
+                                <i class="fa-solid fa-circle-plus"></i> Agregar
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <ul class="nav nav-pills flex-column">
+                                <li *ngFor="let item of tablaList" class="nav-item pb-1">
+                                    <a class="nav-link {{ tablaSelec == item.item ? 'active' : '' }} d-flex justify-content-between align-items-center"
+                                        data-bs-toggle="tab" 
+                                        (click)="loadItems(item.item, item.id, item.descripcion_corta,item.descripcion_larga)" >
+                                        <span>
+                                            <i class="fa-solid fa-check me-2"></i> {{item.descripcion_larga}}
+                                        </span>
+                                        <i class="fa-solid fa-unlock"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9" *ngIf="tablaSelec != -1">
+                    <div class="card shadow-sm">
+                        <div class="card-header d-flex justify-content-end gap-3">
+                            <button class="btn btn-outline-secondary btn-sm" 
+                            ngbTooltip="Editar tabla" placement="bottom"
+                            (click)="openCatalogoModal(null,'editar','tabla')" >
+                                <i class="fa-solid fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm"
+                                (click)="openCatalogoModal(null,'crear','item')">
+                                <i class="fa-solid fa-circle-plus"></i> Agregar Ítem
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Abreviación</th>
+                                        <th>Estado</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of ItemList; let index = index">
+                                        <td>{{index + 1}}</td>
+                                        <td>{{item.descripcion_larga}}</td>
+                                        <td>{{item.descripcion_corta}}</td>
+                                        <td><span class="badge bg-success">Habilitado</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-outline-secondary btn-sm me-2" 
+                                            ngbTooltip="Editar item" 
+                                            placement="bottom"
+                                            (click)="openCatalogoModal(item,'editar','item')">
+                                                <i class="fa-solid fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary btn-sm">
+                                                <i class="fa-solid fa-unlock"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-estado-tabla">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="estadoTabla">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Estado tabla</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" wire:click="limpiar()"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+
+                    @if (!$idTabla)
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center p-5">
+                                        <div class="spinner-border text-primary p-5" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if ($estadoTab == 'HAB')
+                                        <p class="fs-5 m-0">¿Está seguro que desea editar el estado de la tabla?. Este
+                                            proceso no permitira el uso de esta tabla en el sistema.</p>
+                                    @else
+                                        <p class="fs-5 m-0">¿Está seguro que desea editar el estado de la tabla?. Este
+                                            proceso permitira el uso de esta tabla en el sistema.</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal"
+                                wire:click="limpiar()">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                                </div>
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-edit fs-5 pe-2"></i>Editar</span>
+                                </div>
+                            </button>
+                        </div>
+                    @endif
+
+
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Modal Item
+    <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-registrar-item">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="registrarItem">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Registrar item</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" wire:click="limpiar()"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+
+                    <div class="modal-body pb-0">
+                        <div class="row">
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12">
+                                <div class="form-floating mb-7">
+                                    <input type="text"
+                                        class="form-control @error('descripcionLarga') is-invalid @enderror"
+                                        placeholder="" wire:model.live="descripcionLarga" maxlength="100"
+                                        autocomplete="off" />
+                                    <label class="form-label required">Descripción larga</label>
+                                    @error('descripcionLarga')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 pb-3">
+                                <div class="form-floating">
+                                    <input type="text"
+                                        class="form-control @error('descripcionCorta') is-invalid @enderror"
+                                        placeholder="" wire:model.live="descripcionCorta" maxlength="5"
+                                        autocomplete="off" />
+                                    <label class="form-label required">Descripción corta</label>
+                                    @error('descripcionCorta')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer py-3">
+                        <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                            </div>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-editar-item">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="editarItem">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Editar item</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" wire:click="limpiar()"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+
+                    <div class="modal-body pb-0">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-floating mb-7">
+                                    <input type="text"
+                                        class="form-control is-valid @error('descripcionLarga') is-invalid @enderror"
+                                        placeholder="" wire:model.live="descripcionLarga" maxlength="100"
+                                        autocomplete="off" />
+                                    <label class="form-label required">Descripción larga</label>
+                                    @error('descripcionLarga')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 pb-3">
+                                <div class="form-floating">
+                                    <input type="text"
+                                        class="form-control is-valid @error('descripcionCorta') is-invalid @enderror"
+                                        placeholder="" wire:model.live="descripcionCorta" maxlength="5"
+                                        autocomplete="off" />
+                                    <label class="form-label required">Descripción corta</label>
+                                    @error('descripcionCorta')
+                                        <div class="text-danger">
+                                            <span class="error">{{ $message }}</span>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer py-3">
+                        <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal"
+                            wire:click="limpiar()">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                            </div>
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="modal fade" data-bs-backdrop="static" tabindex="-1" wire:ignore.self id="modal-estado-item">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form wire:submit.prevent="estadoItem">
+                    @csrf
+                    <div class="modal-header bg-primary p-4">
+                        <h5 class="modal-title text-white px-4">Estado tabla</h5>
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" wire:click="limpiar()"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </div>
+                    </div>
+
+                    @if (!$idItem)
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center p-5">
+                                        <div class="spinner-border text-primary p-5" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="modal-body pb-0">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if ($estadoIte == 'HAB')
+                                        <p class="fs-5 m-0">¿Está seguro que desea editar el estado del item?. Este
+                                            proceso no permitira el uso de esta tabla en el sistema.</p>
+                                    @else
+                                        <p class="fs-5 m-0">¿Está seguro que desea editar el estado del item?. Este
+                                            proceso permitira el uso de esta tabla en el sistema.</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer py-3">
+                            <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal"
+                                wire:click="limpiar()">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+                                </div>
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span><i class="fa-solid fa-edit fs-5 pe-2"></i>Editar</span>
+                                </div>
+                            </button>
+                        </div>
+                    @endif
+
+
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+</div>

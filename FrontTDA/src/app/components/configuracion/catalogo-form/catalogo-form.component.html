@@ -1,0 +1,56 @@
+<form [formGroup]="catalogoForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header bg-primary p-4">
+        <h5 class="modal-title text-white px-4">{{ accion == "crear" ? 'Registrar' : 'Modificar'}} 
+          {{ tipo == "tabla" ? 'tabla' : 'item'}}
+        </h5>
+        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" wire:click="limpiar()"
+            data-bs-dismiss="modal" aria-label="Close">
+            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                    class="path2"></span></i>
+        </div>
+    </div>
+
+    <div class="modal-body pb-0">
+        <div class="row">
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+              <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': catalogoForm.get('descripcion_larga')?.invalid && catalogoForm.get('descripcion_larga')?.touched}"
+              formControlName="descripcion_larga" maxlength="100" autocomplete="off" />
+              <label class="form-label required">Descripción larga</label>
+              <div *ngIf="catalogoForm.get('descripcion_larga')?.invalid && catalogoForm.get('descripcion_larga')?.touched" class="text-danger">
+                <span *ngIf="catalogoForm.get('descripcion_larga')?.errors?.['required']"> {{getErrorMessage('descripcion_larga')}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': catalogoForm.get('descripcion_corta')?.invalid && catalogoForm.get('descripcion_corta')?.touched}"
+              formControlName="descripcion_corta" maxlength="5" autocomplete="off" />
+              <label class="form-label required">Descripción corta</label>
+              <div *ngIf="catalogoForm.get('descripcion_corta')?.invalid && catalogoForm.get('descripcion_corta')?.touched" class="text-danger">
+                <span *ngIf="catalogoForm.get('descripcion_corta')?.errors?.['required']">{{getErrorMessage('descripcion_corta')}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal"
+            (click)="activateModal.dismiss()">
+            <div class="d-flex justify-content-center align-items-center">
+                <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+            </div>
+        </button>
+        <button type="submit" class="btn btn-primary">
+            <div class="d-flex justify-content-center align-items-center">
+                <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+            </div>
+        </button>
+    </div>
+</form>

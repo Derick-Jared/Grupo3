@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+/* CSS adicional para ajustar la paginación */
+.pagination-sm {
+    font-size: 0.8rem;
+  }
+  
+  .pagination {
+    margin-left: auto; /* Alineación a la derecha */
+  }
+  

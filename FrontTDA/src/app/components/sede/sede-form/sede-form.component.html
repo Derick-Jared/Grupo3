@@ -1,0 +1,116 @@
+<form [formGroup]="sedeForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header bg-primary p-4">
+        <h5 class="modal-title text-white px-4">{{ accion == "crear" ? 'Registrar' : 'Modificar'}} 
+          sede
+        </h5>
+        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" 
+            data-bs-dismiss="modal" aria-label="Close">
+            <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span
+                    class="path2"></span></i>
+        </div>
+    </div>
+
+    <div class="modal-body pb-0">
+        <div class="row">
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+              <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': sedeForm.get('nombre')?.invalid && sedeForm.get('nombre')?.touched}"
+              formControlName="nombre" maxlength="255" autocomplete="off" />
+              <label class="form-label required">Nombre</label>
+              <div *ngIf="sedeForm.get('nombre')?.invalid && sedeForm.get('nombre')?.touched" class="text-danger">
+                <span *ngIf="sedeForm.get('nombre')?.errors?.['required']"> {{getErrorMessage('nombre')}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+              <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': sedeForm.get('direccion')?.invalid && sedeForm.get('direccion')?.touched}"
+              formControlName="direccion" maxlength="255" autocomplete="off" />
+              <label class="form-label required">Direccion</label>
+              <div *ngIf="sedeForm.get('direccion')?.invalid && sedeForm.get('direccion')?.touched" class="text-danger">
+                <span *ngIf="sedeForm.get('direccion')?.errors?.['required']"> {{getErrorMessage('direccion')}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+                <select class="form-select" formControlName="pais" 
+                [ngClass]="{'is-invalid': sedeForm.get('pais')?.invalid && sedeForm.get('pais')?.touched}">
+                    <option hidden selected>Seleccione un pais</option>
+                    <option *ngFor="let item of listaPais" [value]="item.descripcion_corta">
+                        {{ item.descripcion_larga }}
+                    </option>
+                </select>
+                <label class="form-label required">Pais</label>
+                <div *ngIf="sedeForm.get('pais')?.invalid && sedeForm.get('pais')?.touched" class="text-danger">
+                    <span *ngIf="sedeForm.get('pais')?.errors?.['required']"> {{getErrorMessage('pais')}}</span>
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+                <select class="form-select" formControlName="departamento" 
+                [ngClass]="{'is-invalid': sedeForm.get('departamento')?.invalid && sedeForm.get('departamento')?.touched}">
+                    <option hidden selected>Seleccione un departamento</option>
+                    <option *ngFor="let item of listaDepartamento" [value]="item.descripcion_corta">
+                        {{ item.descripcion_larga }}
+                    </option>
+                </select>
+                <label class="form-label required">Departamento</label>
+                <div *ngIf="sedeForm.get('departamento')?.invalid && sedeForm.get('departamento')?.touched" class="text-danger">
+                    <span *ngIf="sedeForm.get('departamento')?.errors?.['required']"> {{getErrorMessage('departamento')}}</span>
+                  </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+                <select class="form-select" formControlName="ciudad" 
+                [ngClass]="{'is-invalid': sedeForm.get('ciudad')?.invalid && sedeForm.get('ciudad')?.touched}">
+                    <option hidden selected>Seleccione un ciudad</option>
+                    <option *ngFor="let item of listaCiudad" [value]="item.descripcion_corta">
+                        {{ item.descripcion_larga }}
+                    </option>
+                </select>
+                <label class="form-label required">Tipo</label>
+                <div *ngIf="sedeForm.get('ciudad')?.invalid && sedeForm.get('ciudad')?.touched" class="text-danger">
+                    <span *ngIf="sedeForm.get('ciudad')?.errors?.['required']"> {{getErrorMessage('ciudad')}}</span>
+                  </div>
+            </div>
+        </div>
+
+          <div class="col-md-12 pb-3">
+            <div class="form-floating mb-7">
+              <input type="text" class="form-control"
+              [ngClass]="{'is-invalid': sedeForm.get('telefono')?.invalid && sedeForm.get('telefono')?.touched}"
+              formControlName="telefono" maxlength="100" autocomplete="off" />
+              <label class="form-label required">Telefono</label>
+              <div *ngIf="sedeForm.get('telefono')?.invalid && sedeForm.get('telefono')?.touched" class="text-danger">
+                <span *ngIf="sedeForm.get('telefono')?.errors?.['required']"> {{getErrorMessage('telefono')}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light text-hover-primary" data-bs-dismiss="modal"
+            (click)="activateModal.dismiss()">
+            <div class="d-flex justify-content-center align-items-center">
+                <span><i class="fa-solid fa-ban fs-5 pe-2"></i>Cancelar</span>
+            </div>
+        </button>
+        <button type="submit" class="btn btn-primary">
+            <div class="d-flex justify-content-center align-items-center">
+                <span><i class="fa-solid fa-floppy-disk fs-5 pe-2"></i>Guardar</span>
+            </div>
+        </button>
+    </div>
+</form>

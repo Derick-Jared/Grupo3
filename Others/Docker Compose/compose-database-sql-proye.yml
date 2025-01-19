@@ -11,9 +11,9 @@ services:
     - ACCEPT_EULA=Y
     - SA_PASSWORD=Admin@2024Secure
     networks:
-    - td2023
+    - grupo3
     
 networks:
-  td2023:
-    name: ms-tdg
+  grupo3:
+    name: ms-grupo3
 

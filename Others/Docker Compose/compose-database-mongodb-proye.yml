@@ -1,9 +1,9 @@
-version: "3.9"
+version: "1"
 
 services:   
   mongo1:
     image: mongo:5.0.2
-    container_name: database-mongo-1
+    container_name: database-mongodb-1
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
@@ -11,11 +11,11 @@ services:
     ports:  
       - 27018:27017
     networks:
-      - td2024 
+      - grupo3 
 
   mongo2:
     image: mongo:5.0.2
-    container_name: database-mongo-2
+    container_name: database-mongodb-2
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
@@ -23,8 +23,8 @@ services:
     ports:  
       - 27019:27017
     networks:
-      - td2024 
-    
+      - grupo3
+
 networks:
-  td2024:
-    name: ms-unu-2024
+  grupo3:
+    name: ms-grupo3

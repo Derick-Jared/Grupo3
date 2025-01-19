@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "213a99e3-e8eb-449a-840a-0cf410c13a71",
+		"name": "Servicio Catalogo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39373156"
+	},
+	"item": [
+		{
+			"name": "addItem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tabla\": 3,\r\n  \"descripcion_corta\": \"CLPR\",\r\n  \"descripcion_larga\": \"Cliente premium\",\r\n  \"estado\": \"HAB\",\r\n  \"creado_por\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateItem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10,\r\n    \"descripcion_corta\": \"DNI\",\r\n    \"descripcion_larga\": \"Cliente continuo\",\r\n    \"actualizado_por\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEstado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Item/Estado/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Item",
+						"Estado",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTablas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Tabla/Listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Tabla",
+						"Listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItemsByTabla",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Tabla/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Tabla",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getItemDesc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/Catalogo/Item/CLPR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"Catalogo",
+						"Item",
+						"CLPR"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

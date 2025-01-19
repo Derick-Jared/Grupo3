@@ -1,0 +1,1081 @@
+{
+	"info": {
+		"_postman_id": "8ddb6249-46fb-43ae-a3da-01ac27f3a557",
+		"name": "Servicio Envios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39373156"
+	},
+	"item": [
+		{
+			"name": "envios",
+			"item": [
+				{
+					"name": "getEnvios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabEnvios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/Hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								"Hab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEnviosById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/User/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								"User",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEnvio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"creado_en\": \"2025-01-01T00:00:00\",\r\n        \"creado_por\": null,\r\n        \"actualizado_en\": \"2025-01-01T00:00:00\",\r\n        \"actualizado_por\": 1,\r\n        \"id\": 1,\r\n        \"codigo\": \"AB\",\r\n        \"tipoEnvio\": \"EXP\",\r\n        \"idUsuario\": 1,\r\n        \"idEmpleado\": 2,\r\n        \"estado\": \"HAB\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createEnvio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigo\": \"AB12345\",\r\n  \"tipoEnvio\": \"HABI\",\r\n  \"idUsuario\": 1,\r\n  \"idEmpleado\": 2,\r\n  \"estado\": \"HAB\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEstadoEnvio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"creado_en\": \"2025-01-04T00:08:05.373033\",\r\n    \"creado_por\": null,\r\n    \"actualizado_en\": \"2025-01-04T00:08:05.373033\",\r\n    \"actualizado_por\": null,\r\n    \"id\": 2,\r\n    \"codigo\": \"EN125\",\r\n    \"tipoEnvio\": \"HABI\",\r\n    \"idUsuario\": 1,\r\n    \"idEmpleado\": 2,\r\n    \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/Estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								"Estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEnvioById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Envios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Envios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipaje",
+			"item": [
+				{
+					"name": "getEquipaje",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabEquipaje",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/Hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								"Hab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabEquipajeByDetalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/Detalle/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								"Detalle",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEquipaje",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"creado_en\": \"2025-01-04T01:59:53.5615531\",\r\n    \"creado_por\": null,\r\n    \"actualizado_en\": \"2025-01-04T01:59:53.5615531\",\r\n    \"actualizado_por\": null,\r\n    \"id\": 1,\r\n    \"contenido\": \"Ropa y accesorioss\",\r\n    \"peso\": 12.5,\r\n    \"costo\": 100.0,\r\n    \"tipoEquipaje\": \"MALET\",\r\n    \"detalleEnvio_id\": 7,\r\n    \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createEquipaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"contenido\": \"Ropa y accesorios\",\r\n  \"peso\": 12.5,\r\n  \"costo\": 100.00,\r\n  \"tipoEquipaje\": \"MALET\",\r\n  \"detalleEnvio_id\": 2,\r\n  \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEstadoEquipaje",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"creado_en\": \"2025-01-04T01:59:53.5615531\",\r\n    \"creado_por\": null,\r\n    \"actualizado_en\": \"2025-01-04T01:59:53.5615531\",\r\n    \"actualizado_por\": null,\r\n    \"id\": 1,\r\n    \"contenido\": \"Ropa y accesorios\",\r\n    \"peso\": 12.5,\r\n    \"costo\": 100.0,\r\n    \"tipoEquipaje\": \"MALET\",\r\n    \"detalleEnvio_id\": 2,\r\n    \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/Estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								"Estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEquipajeById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Equipaje/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Equipaje",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Factura",
+			"item": [
+				{
+					"name": "getFactura",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Factura/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Factura",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabFactura",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Factura/Hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Factura",
+								"Hab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabFacturaByDetalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Factura/Detalle/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Factura",
+								"Detalle",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFactura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : 1,\r\n  \"tipoMoneda\": \"USD\",\r\n  \"costo\": 150.75,\r\n  \"fechaPago\": \"2025-01-04T12:30:00\",\r\n  \"metodoPago\": \"TC\",\r\n  \"numeroCuenta\": \"1234567890123456\",\r\n  \"idDetalleEnvio\": 2,\r\n  \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Factura/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Factura",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createFactura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoMoneda\": \"USD\",\r\n  \"costo\": 150.75,\r\n  \"fechaPago\": \"2025-01-04T12:30:00\",\r\n  \"metodoPago\": \"TC\",\r\n  \"numeroCuenta\": \"1234567890123456\",\r\n  \"idDetalleEnvio\": 2,\r\n  \"estado\": \"PEND\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:80p8/Factura/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "80p8",
+							"path": [
+								"Factura",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEstadoFactura",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : 1,\r\n  \"estado\": \"PEND\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Factura/Estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Factura",
+								"Estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFacturaById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Factura/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Factura",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "detalle_envios",
+			"item": [
+				{
+					"name": "createDetalle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cantidadEquipaje\": 3,\r\n  \"costoTotal\": 150.75,\r\n  \"fechaEnvio\": \"2025-01-03T10:00:00\",\r\n  \"fechaEstimada\": \"2025-01-05T15:00:00\",\r\n  \"fechaEntrega\": \"2025-01-05T17:30:00\",\r\n  \"ruc\": \"1234567890123\",\r\n  \"envio_id\": 1,\r\n  \"puntoInicio\": 1,\r\n  \"puntoFinal\": 2,\r\n  \"estado\": \"HAB\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDetalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabDetalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDetalle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"creado_en\": \"2025-01-04T00:00:00\",\r\n        \"creado_por\": null,\r\n        \"actualizado_en\": \"2025-01-04T00:00:00\",\r\n        \"actualizado_por\": null,\r\n        \"id\": 2,\r\n        \"cantidadEquipaje\": 3,\r\n        \"costoTotal\": 150.75,\r\n        \"fechaEnvio\": \"2025-01-03\",\r\n        \"fechaEstimada\": \"2025-01-05\",\r\n        \"fechaEntrega\": \"2025-01-05\",\r\n        \"ruc\": \"1234567890123\",\r\n        \"envio_id\": 5,\r\n        \"puntoInicio\": 2,\r\n        \"puntoFinal\": 1,\r\n        \"estado\": \"HAB\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEstadoDetalle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"creado_en\": \"2025-01-04T00:00:00\",\r\n        \"creado_por\": null,\r\n        \"actualizado_en\": \"2025-01-04T00:00:00\",\r\n        \"actualizado_por\": null,\r\n        \"id\": 2,\r\n        \"estado\": \"ELIM\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/Estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								"Estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDetalleById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabDetalle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Detalle/Hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Detalle",
+								"Hab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sedes",
+			"item": [
+				{
+					"name": "createSede",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Sede Pucallpina\",\r\n  \"direccion\": \"Av. Secundaria 123\",\r\n  \"ciudad\": \"PUCAL\",\r\n  \"pais\": \"PERU\",\r\n  \"departamento\": \"UCAY\",\r\n  \"telefono\": \"123456789\",\r\n  \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Sede/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Sede",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSede",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Sede/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Sede",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEstadoSede",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"estado\": \"ELIM\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Sede/Estado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Sede",
+								"Estado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSede",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"creado_en\": \"2025-01-03T00:00:00\",\r\n    \"creado_por\": null,\r\n    \"actualizado_en\": \"2025-01-03T00:00:00\",\r\n    \"actualizado_por\": null,\r\n    \"id\": 1,\r\n    \"nombre\": \"Sede Central\",\r\n    \"direccion\": \"Av. Principal 123\",\r\n    \"ciudad\": \"Lima\",\r\n    \"pais\": \"Peru\",\r\n    \"departamento\": \"Lima\",\r\n    \"telefono\": \"123456789\",\r\n    \"estado\": \"HAB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Sede/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Sede",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSedeById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/Sede/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Sede",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHabSede",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8098/Sede/Hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8098",
+							"path": [
+								"Sede",
+								"Hab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

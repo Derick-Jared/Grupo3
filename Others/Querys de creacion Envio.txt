@@ -1,0 +1,97 @@
+## Creacion de las base de datos ##
+
+create database envio;
+
+## Tabla envios##
+CREATE TABLE envio.dbo.envio (
+	id int IDENTITY(1,1) NOT NULL,
+	codigo varchar(10) NOT NULL,
+	tipoEnvio varchar(5) NOT NULL,
+	idUsuario int NOT NULL,
+	idEmpleado int NULL,
+	estado varchar(5) NULL,
+	creado_en date NULL,
+	creado_por int NULL,
+	actualizado_en date NULL,
+	actualizado_por int NULL,
+	CONSTRAINT envio_pk PRIMARY KEY (id)
+);
+
+## Tabla sede ##
+CREATE TABLE envio.dbo.sede (
+	id int IDENTITY(1,1) NOT NULL,
+	nombre varchar(255) NOT NULL,
+	direccion varchar(255) NOT NULL,
+	ciudad varchar(5) NOT NULL,
+	pais varchar(5) NOT NULL,
+	departamento varchar(5) NOT NULL,
+	telefono varchar(15) NOT NULL,
+	estado varchar(5) NULL,
+	creado_en date NULL,
+	creado_por int NULL,
+	actualizado_en date NULL,
+	actualizado_por int NULL,
+	CONSTRAINT sede_pk PRIMARY KEY (id)
+);
+
+## Tabla factura ##
+
+CREATE TABLE envio.dbo.factura (
+	id int IDENTITY(1,1) NOT NULL,
+	tipoMoneda varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	costo decimal(15,2) NOT NULL,
+	fechaPago date NULL,
+	metodopago varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	numeroCuenta varchar(20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	idDetalleEnvio int NOT NULL,
+	estado varchar(5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	creado_en date NULL,
+	creado_por int NULL,
+	actualizado_en date NULL,
+	actualizado_por int NULL,
+	CONSTRAINT factura_pk PRIMARY KEY (id),
+	CONSTRAINT factura_detalle_envio_FK FOREIGN KEY (idDetalleEnvio) REFERENCES envio.dbo.detalle_envio(id) ON DELETE CASCADE
+);
+
+## Tabla detalle_envio ##
+CREATE TABLE envio.dbo.detalle_envio (
+	id int IDENTITY(1,1) NOT NULL,
+	codigo varchar(10) NOT NULL,
+	cantidadEquipaje int NOT NULL,
+	costoTotal decimal(15,2) NOT NULL,
+	fechaEnvio date NULL,
+	fechaEstimada date NULL,
+	fechaEntrega date NULL,
+	ruc varchar(20) NOT NULL,
+	idEnvio int NOT NULL,
+	sedeInicio int NULL,
+	sedeFinal int NULL,
+	estado varchar(5) NULL,
+	creado_en date NULL,
+	creado_por int NULL,
+	actualizado_en date NULL,
+	actualizado_por int NULL,
+	CONSTRAINT detalle_envio_pk PRIMARY KEY (id),
+	CONSTRAINT detalle_envio_envio_FK FOREIGN KEY (idEnvio) REFERENCES envio.dbo.envio(id) ON DELETE CASCADE,
+	CONSTRAINT detalle_envio_sede_inicio_FK FOREIGN KEY (sedeInicio) REFERENCES envio.dbo.sede(id),
+	CONSTRAINT detalle_envio_envio_fin_FK FOREIGN KEY (sedeFinal) REFERENCES envio.dbo.envio(id)
+);
+
+## Tabla equipaje##
+CREATE TABLE envio.dbo.equipaje (
+	id int IDENTITY(1,1) NOT NULL,
+	contenido varchar(255) NOT NULL,
+	peso decimal(15,2) NULL,
+	costo decimal(15,2) NOT NULL,
+	tipoEquipaje varchar(5) NOT NULL,
+	idDetalleEnvio int NOT NULL,
+	estado varchar(5) NULL,
+	creado_en date NULL,
+	creado_por int NULL,
+	actualizado_en date NULL,
+	actualizado_por int NULL,
+	CONSTRAINT equipaje_pk PRIMARY KEY (id),
+	CONSTRAINT equipaje_detalle_envio_FK FOREIGN KEY (idDetalleEnvio) REFERENCES envio.dbo.detalle_envio(id)
+);
+
+

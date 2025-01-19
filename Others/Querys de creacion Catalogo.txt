@@ -1,0 +1,20 @@
+---------------------------------------Servicio catalogo-------------------------------
+create database catalogo;
+
+-- public.catalogo definition
+
+-- DROP TABLE public.catalogo;
+
+CREATE TABLE catalogo.catalogo (
+	id int4 GENERATED ALWAYS AS IDENTITY NOT NULL,
+	tabla int4 NOT NULL,
+	item int4 NOT NULL,
+	descripcion_corta varchar(5) NOT NULL,
+	descripcion_larga varchar(255) NOT NULL,
+	estado varchar(5) NOT NULL,
+	creado_por int4 NULL,
+	creado_en date NULL,
+	actualizado_por int4 NULL,
+	actualizado_en date NULL,
+	CONSTRAINT catalogo_pk PRIMARY KEY (id)
+);

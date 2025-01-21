@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import TDA2024.Recepcion.message.RecepcionMessagePublic;
 import TDA2024.Recepcion.models.RecepcionModel;
 import TDA2024.Recepcion.routes.RecepcionRoutes;
 import TDA2024.Recepcion.services.interfaces.IRecepcionService;
@@ -22,6 +23,9 @@ public class RecepcionController {
 
     @Autowired
     IRecepcionService recepcionService;
+
+    @Autowired
+    RecepcionMessagePublic messageService;
 
     @GetMapping(RecepcionRoutes.GET_ALL)
 	public List<RecepcionModel> listar() {
@@ -34,7 +38,8 @@ public class RecepcionController {
     }
 
     @PostMapping(RecepcionRoutes.CREATE)
-    public RecepcionModel create(@RequestBody RecepcionModel model) {
+    public RecepcionModel create(@RequestBody RecepcionModel model) throws Exception {
+        messageService.EnviarEnvioEvento(model);
         return recepcionService.add(model);
     }
 

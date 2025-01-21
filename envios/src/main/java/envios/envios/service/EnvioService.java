@@ -58,8 +58,8 @@ public class EnvioService implements IEnvioService {
         if(newModel == null){
             return null;
         }
-        model.setCodigo(newModel.getCodigo());
-        return repository.save(model);
+        newModel.setEstado(model.getEstado());
+        return repository.save(newModel);
     }
 
     @Override

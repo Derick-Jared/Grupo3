@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import envios.envios.model.DetalleEnvioModel;
 import envios.envios.model.EnvioModel;
-import envios.envios.model.SedeModel;
 import envios.envios.repository.IDetalleEnvioRepository;
 import envios.envios.repository.IEnvioRepository;
 import envios.envios.repository.ISedeRepository;

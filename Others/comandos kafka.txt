@@ -1,0 +1,14 @@
+----- Moverte entro e la carpeta de paquetes de kafka ------
+cd opt/kafka_2.13-2.6.0/bin
+
+----- Crear un topic -----
+./kafka-topics.sh --create --topic elNombreDeTuTopic --zookeeper localhost:2181 --replication-factor 1 --partitions 4
+
+----- Listar los topicos ----
+./kafka-topics.sh --list --zookeeper localhost:2181
+
+----- Crear tu emisor o producer ---
+./kafka-console-producer.sh --broker-list localhost:9092 --topic elNombreDetuTopic
+
+----- Crear tu receptor ----
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic elNombreDetuTopic  --group elNombreDelGrupoConsumidor

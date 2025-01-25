@@ -12,18 +12,18 @@ import jakarta.validation.constraints.NotNull;
 @SpringBootApplication
 @EnableCaching
 @EnableJpaAuditing
-public class CatalogoApplication implements WebMvcConfigurer{
+public class CatalogoApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CatalogoApplication.class, args);
 	}
-
+	
 	@Override
-	public void addCorsMappings(@NotNull CorsRegistry registry){
+	public void addCorsMappings(@NotNull CorsRegistry registry) {
 		registry.addMapping("/**")
-		.allowedOrigins("http://localhost:4200")
-		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
-		.allowedHeaders("*")
-		.allowCredentials(true);
+				.allowedOrigins("http://localhost:4200")
+				.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+				.allowedHeaders("*")
+				.allowCredentials(true);
 	}
 }
